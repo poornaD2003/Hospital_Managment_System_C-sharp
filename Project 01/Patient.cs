@@ -18,7 +18,6 @@ namespace Project_01
                 {
                     conn.Open();
 
-                    // Password saha ID dekama select karaganna
                     string sql = "SELECT password, patientID FROM [patient] WHERE userName = @username";
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
@@ -27,18 +26,16 @@ namespace Project_01
 
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            if (reader.Read()) // Record ekak thiyenam
+                            if (reader.Read()) 
                             {
                                 string storedHash = reader["password"].ToString();
                                 string pID = reader["patientID"].ToString();
                                 
 
-                                // Password eka verify kirima
                                 bool isValid = BCrypt.Net.BCrypt.Verify(getPassword(), storedHash);
 
                                 if (isValid)
                                 {
-                                    // PatientID eka parameter ekak lesa pass karanna
                                     patientPage patientDashboard = new patientPage(pID);
                                     patientDashboard.Show();
                                 }
@@ -60,49 +57,6 @@ namespace Project_01
                 MessageBox.Show("Database Error: " + ex.Message);
             }
         }
-        /*public override void openPage()
-        {
-            try
-            {
-                using (SqlConnection conn = dbConnection.GetConnection())
-                {
-                    conn.Open();
-
-                   
-                    string sql = "SELECT password, patientID FROM [patient] WHERE userName = @username ";
-
-                    using (SqlCommand cmd = new SqlCommand(sql, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@username", this.getUsername());
-                      
-
-                        object result = cmd.ExecuteScalar();
-
-                        if (result != null)
-                        {
-                            string storedHash = result.ToString();
-                            bool isValid = BCrypt.Net.BCrypt.Verify(getPassword(), storedHash);
-
-                            if (isValid)
-                            {
-                                patientPage patientDashboard = new patientPage();
-                                patientDashboard.Show();
-                            }
-                            else { 
-                                MessageBox.Show("Invalid password. Please try again.");
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Patient record not found in the database.");
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Database Error: " + ex.Message);
-            }
-        }*/
+        
     }
 }

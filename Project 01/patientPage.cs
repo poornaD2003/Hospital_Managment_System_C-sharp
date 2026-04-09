@@ -87,7 +87,7 @@ namespace Project_01
 
                             doc.Close();
 
-                            MessageBox.Show("PDF එක සාර්ථකව සාදා නිම කරන ලදී!");
+                            MessageBox.Show("Successfully Created PDF");
 
                             ProcessStartInfo psi = new ProcessStartInfo
                             {

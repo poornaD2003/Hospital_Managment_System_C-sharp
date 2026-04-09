@@ -71,7 +71,6 @@ namespace Project_01
         }
         private void login_FormClosed(object sender, FormClosedEventArgs e)
         {
-            // This ensures the entire process kills itself when the form is closed
             Application.Exit();
         }
 

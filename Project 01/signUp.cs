@@ -36,8 +36,7 @@ namespace Project_01
         }
         private string GetNextPatientID(SqlConnection conn)
         {
-            string nextID = "P001"; // Default starting point
-                                    // IMPORTANT: Check your database to see if it's 'patientID' or 'patintID' (based on your error)
+            string nextID = "P001";      
             string query = "SELECT TOP 1 patientID FROM [patient] ORDER BY patientID DESC";
 
             try
@@ -118,19 +117,6 @@ namespace Project_01
                 }
             }
 
-
-
-
-            /*string connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=vpDB;Integrated Security=True;Trust Server Certificate=True";
-        SqlConnection conn = new SqlConnection(connectionString);
-        conn.Open();
-
-        string query = "INSERT INTO [user] (userName, password, phoneNumber, email) VALUES ('" + username + "', '" + passwordHash + "', '" + phoneNumber + "', '" + email + "')";
-
-        SqlCommand cmd = new SqlCommand(query, conn);
-        cmd.ExecuteNonQuery();
-        conn.Close();
-        MessageBox.Show("User registered successfully!");*/
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -143,7 +129,6 @@ namespace Project_01
 
             using (MemoryStream ms = new MemoryStream())
             {
-                // PictureBox එකේ තියෙන image එක MemoryStream එකට save කරන්න
                 pb.Image.Save(ms, pb.Image.RawFormat);
                 return ms.ToArray();
             }
