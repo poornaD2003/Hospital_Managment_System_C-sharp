@@ -11,6 +11,9 @@
 *.sln.docstates
 *.env
 
+# Ignore my database connection file
+Project 01/dbConnection.cs
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
