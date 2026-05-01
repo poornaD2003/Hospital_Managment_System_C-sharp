@@ -10,9 +10,11 @@ namespace Project_01
 {
     public partial class login : Form
     {
-        public login()
+        private signUp _parentForm;
+        public login(signUp form1Instance)
         {
             InitializeComponent();
+            _parentForm = form1Instance;
         }
 
         private void login_Load(object sender, EventArgs e)
@@ -75,6 +77,16 @@ namespace Project_01
         }
 
         private void userNameField_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
