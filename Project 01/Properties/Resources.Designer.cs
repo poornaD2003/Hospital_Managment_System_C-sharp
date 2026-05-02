@@ -63,6 +63,26 @@ namespace Project_01.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _8a8d3f62663f719adc1b4402d1ce9d8f {
+            get {
+                object obj = ResourceManager.GetObject("8a8d3f62663f719adc1b4402d1ce9d8f", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Background {
+            get {
+                object obj = ResourceManager.GetObject("Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap elegant_hand_painted_alcohol_ink_background_3001 {
             get {
                 object obj = ResourceManager.GetObject("elegant_hand_painted_alcohol_ink_background_3001", resourceCulture);
@@ -96,6 +116,16 @@ namespace Project_01.Properties {
         internal static System.Drawing.Bitmap v870_tang_35 {
             get {
                 object obj = ResourceManager.GetObject("v870-tang-35", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Vector {
+            get {
+                object obj = ResourceManager.GetObject("Vector", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

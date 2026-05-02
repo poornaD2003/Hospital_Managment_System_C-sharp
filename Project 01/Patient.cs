@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using BCrypt.Net;
+using System.Web;
 
 namespace Project_01
 {
@@ -19,6 +20,7 @@ namespace Project_01
                     conn.Open();
 
                     string sql = "SELECT password, patientID FROM [patient] WHERE userName = @username";
+                 
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {

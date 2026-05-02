@@ -36,7 +36,7 @@ namespace Project_01
         }
         private string GetNextPatientID(SqlConnection conn)
         {
-            string nextID = "P001";      
+            string nextID = "P001";
             string query = "SELECT TOP 1 patientID FROM [patient] ORDER BY patientID DESC";
 
             try
@@ -77,7 +77,7 @@ namespace Project_01
 
             byte[] patientImg = GetImageBytes(imageBox);
 
-            
+
 
 
             using (SqlConnection conn = dbConnection.GetConnection())
@@ -136,14 +136,43 @@ namespace Project_01
 
         private void imageBtn_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog openFile = new OpenFileDialog()) {
+            using (OpenFileDialog openFile = new OpenFileDialog())
+            {
                 openFile.Filter = "Image Files(*.jpg; *.jpeg; *.png; *.bmp)|*.jpg; *.jpeg; *.png; *.bmp";
                 openFile.Title = "Select Patient Image";
-                if (openFile.ShowDialog() == DialogResult.OK) { 
-                    
-                    imageBox.Image= Image.FromFile(openFile.FileName);
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+
+                    imageBox.Image = Image.FromFile(openFile.FileName);
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            emplyeeRegister employeeRegisterForm = new emplyeeRegister();
+            employeeRegisterForm.ShowDialog();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            doctorRegestor doctorRegestorForm = new doctorRegestor();
+            doctorRegestorForm.ShowDialog();
+            this.Hide();
+
+        }
+
+        private void passswordField_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            login loaginpage = new login(this);
+            loaginpage.Show();
+            this.Hide();
         }
     }
 }
