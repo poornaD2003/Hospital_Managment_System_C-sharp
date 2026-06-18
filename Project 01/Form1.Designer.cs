@@ -51,6 +51,7 @@
             label8 = new Label();
             panel3 = new Panel();
             flowAppointments = new FlowLayoutPanel();
+            button4 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -174,6 +175,7 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(button4);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(pictureBox1);
@@ -344,6 +346,16 @@
             flowAppointments.WrapContents = false;
             flowAppointments.Paint += flowAppointments_Paint;
             // 
+            // button4
+            // 
+            button4.Location = new Point(578, 22);
+            button4.Name = "button4";
+            button4.Size = new Size(76, 29);
+            button4.TabIndex = 4;
+            button4.Text = "Profile";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click_1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -401,5 +413,6 @@
         private FlowLayoutPanel flowAppointments;
         private Label lblTotalPatients;
         private Label lblPendingAppointments;
+        private Button button4;
     }
 }

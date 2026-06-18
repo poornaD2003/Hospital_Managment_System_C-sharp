@@ -31,7 +31,7 @@ namespace Project_01
             txtHistory.Clear();
 
             SqlConnection con =
-            DB.GetConnection();
+            dbConnection.GetConnection();
 
             string query =
             @"SELECT
@@ -127,7 +127,7 @@ namespace Project_01
         {
             dgvPatients.Rows.Clear();
 
-            SqlConnection con = DB.GetConnection();
+            SqlConnection con = dbConnection.GetConnection();
 
             string query =
             @"SELECT *

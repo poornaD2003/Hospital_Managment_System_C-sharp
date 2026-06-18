@@ -39,7 +39,7 @@ namespace Project_01
 
         private void LoadAppointments()
         {
-            SqlConnection con = DB.GetConnection();
+            SqlConnection con = dbConnection.GetConnection();
 
             string query =
             @"SELECT

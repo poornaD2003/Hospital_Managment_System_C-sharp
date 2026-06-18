@@ -3,9 +3,11 @@ namespace Project_01
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        private int currentUserId;
+        public Form1(int userId)
         {
             InitializeComponent();
+            this.currentUserId = userId;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -51,7 +53,7 @@ namespace Project_01
 
             try
             {
-                using (SqlConnection con = DB.GetConnection())
+                using (SqlConnection con = dbConnection.GetConnection())
                 {
                     string query =
                     @"SELECT
@@ -188,7 +190,7 @@ namespace Project_01
         {
             try
             {
-                using (SqlConnection con = DB.GetConnection())
+                using (SqlConnection con = dbConnection.GetConnection())
                 {
                     string query = "SELECT doctorName FROM doctor WHERE doctorID = '1'";
                     SqlCommand cmd = new SqlCommand(query, con);
@@ -202,7 +204,7 @@ namespace Project_01
                     }
                 }
 
-                using (SqlConnection con = DB.GetConnection())
+                using (SqlConnection con = dbConnection.GetConnection())
                 {
                     string query = "SELECT specialization FROM doctor WHERE doctorID = '1'";
                     SqlCommand cmd = new SqlCommand(query, con);
@@ -222,7 +224,7 @@ namespace Project_01
         {
             try
             {
-                using (SqlConnection con = DB.GetConnection())
+                using (SqlConnection con = dbConnection.GetConnection())
                 {
                     string query = "SELECT COUNT(*) FROM patient";
                     SqlCommand cmd = new SqlCommand(query, con);
@@ -240,7 +242,7 @@ namespace Project_01
         {
             try
             {
-                using (SqlConnection con = DB.GetConnection())
+                using (SqlConnection con = dbConnection.GetConnection())
                 {
                     string query =
                     @"SELECT COUNT(*)
@@ -268,6 +270,12 @@ namespace Project_01
         {
             AppointmentForm frm = new AppointmentForm();
             frm.Show();
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            doctorDataEdit editData = new doctorDataEdit(currentUserId);
+            editData.Show();
         }
     }
 }
