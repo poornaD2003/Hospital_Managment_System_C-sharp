@@ -36,7 +36,7 @@ namespace Project_01
 
                                 if (isValid)
                                 {
-                                    doctorPage doctorDashboard = new doctorPage();
+                                    Form1 doctorDashboard = new Form1();
                                     doctorDashboard.Show();
                                 }
                                 else
