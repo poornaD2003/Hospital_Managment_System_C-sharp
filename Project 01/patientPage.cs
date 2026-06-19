@@ -114,5 +114,11 @@ namespace Project_01
             patientPage patientPage = new patientPage(patientID);
             patientPage.ExportPatientToPDF(patientID);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            patientDataEdit patientEdit = new patientDataEdit(patientID);
+            patientEdit.Show();
+        }
     }
 }
