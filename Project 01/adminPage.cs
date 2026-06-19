@@ -36,6 +36,11 @@ namespace Project_01
             this.Hide();
         }
 
+        private void InitializeComponent()
+        {
+
+        }
+
         private void btnRooms_Click(object sender, EventArgs e)
         {
             bed bedPage = new bed();
