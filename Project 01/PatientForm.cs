@@ -11,16 +11,16 @@ namespace Project_01
 {
     public partial class PatientForm : Form
     {
-        private string _doctorUsername;
+        private int _doctorId;
 
         public PatientForm()
         {
             InitializeComponent();
         }
 
-        public PatientForm(string doctorUsername) : this()
+        public PatientForm(int doctorId) : this()
         {
-            _doctorUsername = doctorUsername;
+            _doctorId = doctorId;
         }
 
         private void dgvPatients_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -140,8 +140,7 @@ namespace Project_01
             @"SELECT DISTINCT p.patientID, p.userName, p.sex, p.age, p.phoneNumber
         FROM patient p
         INNER JOIN appoinment a ON p.patientID = a.patientID
-        INNER JOIN doctor d ON a.doctorID = d.doctorID
-        WHERE d.doctorName LIKE @doctorName";
+        WHERE a.doctorID = @doctorId";
 
             if (!string.IsNullOrWhiteSpace(searchTerm))
             {
@@ -151,7 +150,7 @@ namespace Project_01
             SqlCommand cmd =
             new SqlCommand(query, con);
 
-            cmd.Parameters.AddWithValue("@doctorName", "%" + (_doctorUsername ?? "") + "%");
+            cmd.Parameters.AddWithValue("@doctorId", _doctorId.ToString());
 
             if (!string.IsNullOrWhiteSpace(searchTerm))
             {

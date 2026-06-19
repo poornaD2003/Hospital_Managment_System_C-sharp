@@ -27,9 +27,9 @@ namespace Project_01
         private void LoadAppointmentInfo()
         {
             SqlConnection con = dbConnection.GetConnection();
-            string query = @"SELECT p.patientID, p.userName, a.appoinmentDate, a.doctorID
+            string query = @"SELECT a.patientID, ISNULL(p.userName, a.patientID) AS userName, a.appoinmentDate, a.doctorID
                              FROM appoinment a
-                             INNER JOIN patient p ON a.patientID = p.patientID
+                             LEFT JOIN patient p ON a.patientID = p.patientID
                              WHERE a.appointmentID = @id";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", AppointmentID);

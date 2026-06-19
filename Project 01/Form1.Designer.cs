@@ -365,6 +365,7 @@
             button4.Text = "      \U0001fa7a  Profile";
             button4.TextAlign = ContentAlignment.MiddleLeft;
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click_1;
             
             // 
             // Form1
@@ -381,7 +382,7 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dashboard";
-            WindowState = FormWindowState.Maximized;
+            WindowState = FormWindowState.Normal;
             Load += Form1_Load_1;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
