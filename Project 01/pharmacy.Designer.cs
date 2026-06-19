@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
-            button1 = new Button();
+            exitBtn = new Button();
             label6 = new Label();
             idLabel = new Label();
             updateBtn = new Button();
@@ -57,7 +57,7 @@
             // panel1
             // 
             panel1.BackgroundImage = Properties.Resources.Background;
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(exitBtn);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(idLabel);
             panel1.Controls.Add(updateBtn);
@@ -79,17 +79,17 @@
             panel1.Size = new Size(416, 481);
             panel1.TabIndex = 0;
             // 
-            // button1
+            // exitBtn
             // 
-            button1.BackColor = Color.FromArgb(0, 107, 84);
-            button1.BackgroundImage = Properties.Resources.Vector;
-            button1.BackgroundImageLayout = ImageLayout.Center;
-            button1.Location = new Point(35, 16);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(39, 22);
-            button1.TabIndex = 1;
-            button1.UseVisualStyleBackColor = false;
+            exitBtn.BackColor = Color.FromArgb(0, 107, 84);
+            exitBtn.BackgroundImage = Properties.Resources.Vector;
+            exitBtn.BackgroundImageLayout = ImageLayout.Center;
+            exitBtn.Location = new Point(40, 21);
+            exitBtn.Name = "exitBtn";
+            exitBtn.Size = new Size(45, 29);
+            exitBtn.TabIndex = 1;
+            exitBtn.UseVisualStyleBackColor = false;
+            exitBtn.Click += exitBtn_Click;
             // 
             // label6
             // 
@@ -260,16 +260,15 @@
             // loadMedicine
             // 
             loadMedicine.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = Color.SeaGreen;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            loadMedicine.DefaultCellStyle = dataGridViewCellStyle1;
-            loadMedicine.Location = new Point(0, 16);
-            loadMedicine.Margin = new Padding(3, 2, 3, 2);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.SeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            loadMedicine.DefaultCellStyle = dataGridViewCellStyle2;
+            loadMedicine.Location = new Point(7, 21);
             loadMedicine.Name = "loadMedicine";
             loadMedicine.RowHeadersWidth = 51;
             loadMedicine.Size = new Size(658, 452);
@@ -316,6 +315,6 @@
         private DataGridView loadMedicine;
         private Label idLabel;
         private Label label6;
-        private Button button1;
+        private Button exitBtn;
     }
 }

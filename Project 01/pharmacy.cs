@@ -21,7 +21,7 @@ namespace Project_01
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -160,12 +160,12 @@ namespace Project_01
 
         private void loadMedicine_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void loadMedicine_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) 
+            if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = loadMedicine.Rows[e.RowIndex];
                 idLabel.Text = row.Cells["medicine_id"].Value.ToString();
@@ -204,6 +204,14 @@ namespace Project_01
                 searchBox.Text = "Search Medicine Name or Category";
                 searchBox.ForeColor = Color.Gray;
             }
+        }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            adminPage admin = new adminPage();
+            admin.Show();
+            this.Hide();
+            
         }
     }
 }

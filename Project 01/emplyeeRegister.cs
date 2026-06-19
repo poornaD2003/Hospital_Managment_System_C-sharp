@@ -3,15 +3,23 @@ using System.Windows.Forms;
 
 namespace Project_01
 {
-    // Minimal emplyeeRegister form placeholder to satisfy references
-    internal class emplyeeRegister : Form
+    public partial class emplyeeRegister : Form
     {
         public emplyeeRegister()
         {
+            InitializeComponent();
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // emplyeeRegister
+            // 
+            this.ClientSize = new System.Drawing.Size(400, 300);
+            this.Name = "emplyeeRegister";
             this.Text = "Employee Register";
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.Width = 600;
-            this.Height = 400;
+            this.ResumeLayout(false);
         }
     }
 }
