@@ -322,7 +322,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(971, 1055);
+            ClientSize = new Size(908, 1007);
             Controls.Add(newpassBox);
             Controls.Add(oldpasBox);
             Controls.Add(label14);

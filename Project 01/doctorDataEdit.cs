@@ -108,9 +108,10 @@ namespace Project_01
                     {
                         try
                         {
-                            string updatePasswordQuery = "UPDATE [User] SET password = @newPassword WHERE UserId = @userId";
+                            string updatePasswordQuery = "UPDATE [User] SET userName = @userName, password = @newPassword WHERE UserId = @userId";
                             using (SqlCommand cmdUpdatePass = new SqlCommand(updatePasswordQuery, conn, transaction))
                             {
+                                cmdUpdatePass.Parameters.AddWithValue("@userName", doctorName);
                                 cmdUpdatePass.Parameters.AddWithValue("@newPassword", hashedNewPassword);
                                 cmdUpdatePass.Parameters.AddWithValue("@userId", currentUserId);
                                 cmdUpdatePass.ExecuteNonQuery();
