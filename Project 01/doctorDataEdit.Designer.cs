@@ -287,7 +287,7 @@
             label11.AutoSize = true;
             label11.BackColor = Color.Transparent;
             label11.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.ForeColor = Color.ForestGreen;
+            label11.ForeColor = Color.Honeydew;
             label11.Location = new Point(50, 82);
             label11.Name = "label11";
             label11.Size = new Size(193, 23);
@@ -299,7 +299,7 @@
             label12.AutoSize = true;
             label12.BackColor = Color.Transparent;
             label12.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.ForeColor = Color.ForestGreen;
+            label12.ForeColor = Color.Honeydew;
             label12.Location = new Point(47, 776);
             label12.Name = "label12";
             label12.Size = new Size(192, 23);

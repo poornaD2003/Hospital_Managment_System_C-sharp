@@ -34,8 +34,8 @@
             passwordField = new TextBox();
             submitBtn = new Button();
             panel1 = new Panel();
-            label2 = new Label();
             panel2 = new Panel();
+            label2 = new Label();
             button1 = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -95,6 +95,17 @@
             panel1.Size = new Size(424, 576);
             panel1.TabIndex = 5;
             // 
+            // panel2
+            // 
+            panel2.BackColor = Color.Transparent;
+            panel2.BackgroundImage = Properties.Resources.medium_shot_female_nurse_hospital_removebg_preview;
+            panel2.BackgroundImageLayout = ImageLayout.Stretch;
+            panel2.Location = new Point(-39, 86);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(482, 487);
+            panel2.TabIndex = 0;
+            panel2.Paint += panel2_Paint;
+            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -104,17 +115,6 @@
             label2.Size = new Size(233, 38);
             label2.TabIndex = 6;
             label2.Text = "Register Doctors";
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.Transparent;
-            panel2.BackgroundImage = Properties.Resources.medium_shot_female_nurse_hospital_removebg_preview;
-            panel2.BackgroundImageLayout = ImageLayout.Stretch;
-            panel2.Location = new Point(0, 86);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(421, 487);
-            panel2.TabIndex = 0;
-            panel2.Paint += panel2_Paint;
             // 
             // button1
             // 

@@ -51,7 +51,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(467, 21);
+            label1.Location = new Point(446, 20);
             label1.Name = "label1";
             label1.Size = new Size(191, 41);
             label1.TabIndex = 1;
@@ -92,19 +92,22 @@
             // 
             // registerBtn
             // 
-            registerBtn.Location = new Point(375, 257);
+            registerBtn.BackColor = Color.DarkGreen;
+            registerBtn.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            registerBtn.ForeColor = SystemColors.Control;
+            registerBtn.Location = new Point(372, 257);
             registerBtn.Name = "registerBtn";
-            registerBtn.Size = new Size(322, 46);
+            registerBtn.Size = new Size(325, 46);
             registerBtn.TabIndex = 6;
             registerBtn.Text = "Register";
-            registerBtn.UseVisualStyleBackColor = true;
+            registerBtn.UseVisualStyleBackColor = false;
             registerBtn.Click += registerBtn_Click;
             // 
             // adminRegister
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(783, 450);
             Controls.Add(registerBtn);
             Controls.Add(passBox);
             Controls.Add(nameBox);
