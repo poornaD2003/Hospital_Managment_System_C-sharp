@@ -6,7 +6,7 @@ namespace Project_01
 
         private string _doctorUsername;
 
-       
+
 
         private int currentUserId;
         public Form1(int userId)
@@ -15,7 +15,7 @@ namespace Project_01
             this.currentUserId = userId;
         }
 
-        
+
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -303,6 +303,12 @@ namespace Project_01
             doctorDataEdit editData = new doctorDataEdit(currentUserId);
             editData.Show();
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            doctorDataEdit dde=new doctorDataEdit(currentUserId);
+            dde.Show();
         }
     }
 }
