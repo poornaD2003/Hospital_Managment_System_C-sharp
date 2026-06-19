@@ -3,9 +3,16 @@ namespace Project_01
 {
     public partial class Form1 : Form
     {
+        private string _doctorUsername;
+
         public Form1()
         {
             InitializeComponent();
+        }
+
+        public Form1(string doctorUsername) : this()
+        {
+            _doctorUsername = doctorUsername;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -15,7 +22,7 @@ namespace Project_01
 
         private void button4_Click(object sender, EventArgs e)
         {
-            AppointmentForm frm = new AppointmentForm();
+            AppointmentForm frm = new AppointmentForm(_doctorUsername);
             frm.Show();
         }
 
@@ -63,11 +70,15 @@ namespace Project_01
           FROM appoinment a
           INNER JOIN patient p
           ON a.patientID=p.patientID
+          INNER JOIN doctor d
+          ON a.doctorID=d.doctorID
           WHERE CAST(a.appoinmentDate AS DATE) = CAST(GETDATE() AS DATE)
           AND (a.note IS NULL OR a.note <> 'Completed')
+          AND d.doctorName LIKE @doctorName
           ORDER BY a.appointmentTime";
 
                     SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@doctorName", "%" + (_doctorUsername ?? "") + "%");
                     con.Open();
                     SqlDataReader dr = cmd.ExecuteReader();
 
@@ -188,32 +199,36 @@ namespace Project_01
         {
             try
             {
+                string searchName = _doctorUsername ?? "";
                 using (SqlConnection con = DB.GetConnection())
                 {
-                    string query = "SELECT doctorName FROM doctor WHERE doctorID = '1'";
+                    string query = "SELECT doctorName, specialization FROM doctor WHERE doctorName LIKE @name";
                     SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@name", "%" + searchName + "%");
                     con.Open();
-                    object result = cmd.ExecuteScalar();
-                    if (result != null)
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        string name = result.ToString();
-                        lblWelcome.Text = "Welcome back,\n" + name;
-                        label3.Text = "Dr. " + name;
+                        if (reader.Read())
+                        {
+                            string name = reader["doctorName"].ToString();
+                            lblWelcome.Text = "Welcome back,\n" + name;
+                            label3.Text = "Dr. " + name;
+                            label4.Text = reader["specialization"] != null && !string.IsNullOrWhiteSpace(reader["specialization"].ToString())
+                                ? reader["specialization"].ToString() : "General Practitioner";
+                        }
+                        else
+                        {
+                            lblWelcome.Text = "Welcome back,\n" + searchName;
+                            label3.Text = "Dr. " + (string.IsNullOrEmpty(searchName) ? "Doctor" : searchName);
+                            label4.Text = "General Practitioner";
+                        }
                     }
-                }
-
-                using (SqlConnection con = DB.GetConnection())
-                {
-                    string query = "SELECT specialization FROM doctor WHERE doctorID = '1'";
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    con.Open();
-                    object spec = cmd.ExecuteScalar();
-                    label4.Text = spec != null && !string.IsNullOrWhiteSpace(spec.ToString())
-                        ? spec.ToString() : "General Practitioner";
                 }
             }
             catch
             {
+                lblWelcome.Text = "Welcome back,\n" + (string.IsNullOrEmpty(_doctorUsername) ? "Doctor" : _doctorUsername);
+                label3.Text = "Dr. " + (string.IsNullOrEmpty(_doctorUsername) ? "Doctor" : _doctorUsername);
                 label4.Text = "General Practitioner";
             }
         }
@@ -224,8 +239,14 @@ namespace Project_01
             {
                 using (SqlConnection con = DB.GetConnection())
                 {
-                    string query = "SELECT COUNT(*) FROM patient";
+                    string query =
+                    @"SELECT COUNT(DISTINCT p.patientID)
+                    FROM patient p
+                    INNER JOIN appoinment a ON p.patientID = a.patientID
+                    INNER JOIN doctor d ON a.doctorID = d.doctorID
+                    WHERE d.doctorName LIKE @doctorName";
                     SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@doctorName", "%" + (_doctorUsername ?? "") + "%");
                     con.Open();
                     lblTotalPatients.Text = cmd.ExecuteScalar().ToString();
                 }
@@ -244,10 +265,13 @@ namespace Project_01
                 {
                     string query =
                     @"SELECT COUNT(*)
-          FROM appoinment
-          WHERE CAST(appoinmentDate AS DATE) = CAST(GETDATE() AS DATE)
-          AND (note IS NULL OR note <> 'Completed')";
+          FROM appoinment a
+          INNER JOIN doctor d ON a.doctorID = d.doctorID
+          WHERE CAST(a.appoinmentDate AS DATE) = CAST(GETDATE() AS DATE)
+          AND (a.note IS NULL OR a.note <> 'Completed')
+          AND d.doctorName LIKE @doctorName";
                     SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@doctorName", "%" + (_doctorUsername ?? "") + "%");
                     con.Open();
                     lblPendingAppointments.Text = cmd.ExecuteScalar().ToString();
                 }
@@ -260,14 +284,19 @@ namespace Project_01
 
         private void button2_Click(object sender, EventArgs e)
         {
-            PatientForm frm = new PatientForm();
+            PatientForm frm = new PatientForm(_doctorUsername);
             frm.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AppointmentForm frm = new AppointmentForm();
+            AppointmentForm frm = new AppointmentForm(_doctorUsername);
             frm.Show();
+        }
+
+        private void lblWelcome_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

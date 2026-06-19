@@ -12,10 +12,16 @@ namespace Project_01
     public partial class AppointmentForm : Form
     {
         private bool showAll = false;
+        private string _doctorUsername;
 
         public AppointmentForm()
         {
             InitializeComponent();
+        }
+
+        public AppointmentForm(string doctorUsername) : this()
+        {
+            _doctorUsername = doctorUsername;
         }
 
         private void AppointmentForm_Load(object sender, EventArgs e)
@@ -54,16 +60,19 @@ namespace Project_01
     INNER JOIN patient p
     ON a.patientID = p.patientID
     INNER JOIN doctor d
-    ON a.doctorID = d.doctorID";
+    ON a.doctorID = d.doctorID
+    WHERE d.doctorName LIKE @doctorName";
 
             if (!showAll)
             {
-                query += " WHERE CAST(a.appoinmentDate AS DATE) = @date";
+                query += " AND CAST(a.appoinmentDate AS DATE) = @date";
             }
 
             query += " ORDER BY a.appoinmentDate DESC, a.appointmentTime DESC";
 
             SqlDataAdapter da = new SqlDataAdapter(query, con);
+
+            da.SelectCommand.Parameters.AddWithValue("@doctorName", "%" + (_doctorUsername ?? "") + "%");
 
             if (!showAll)
             {
