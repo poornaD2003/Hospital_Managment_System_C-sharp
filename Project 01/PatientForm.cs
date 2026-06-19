@@ -165,6 +165,9 @@ namespace Project_01
             con.Close();
         }
 
+        private void dgvPatients_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
     }
 }

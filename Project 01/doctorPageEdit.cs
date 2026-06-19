@@ -134,7 +134,7 @@ namespace Project_01
         private void button1_Click(object sender, EventArgs e)
         {
             // Open the new standalone registration sub-form as a blocking dialog window
-            using (doctorPageAdd addForm = new doctorPageAdd())
+            using (doctorRegestor addForm = new doctorRegestor())
             {
                 // If the user saves successfully and the form closes with an OK result
                 if (addForm.ShowDialog() == DialogResult.OK)

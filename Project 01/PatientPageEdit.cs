@@ -24,7 +24,7 @@ namespace Project_01
                 // Using your centralized connection class here
                 using (SqlConnection conn = dbConnection.GetConnection())
                 {
-                    string query = "SELECT patientID, password, email, phoneNumber, address, age, sex, bloodGroup, userName, patientImage FROM patient";
+                    string query = "SELECT patientID, email, phoneNumber, address, age, sex, bloodGroup, userName, patientImage FROM patient";
                     using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
                     {
                         DataTable dt = new DataTable();
@@ -68,7 +68,7 @@ namespace Project_01
                 using (SqlConnection conn = dbConnection.GetConnection())
                 {
                     string query = @"UPDATE patient 
-                                     SET password = @password, 
+                                     SET  
                                          email = @email, 
                                          phoneNumber = @phoneNumber, 
                                          address = @address, 
@@ -83,7 +83,6 @@ namespace Project_01
                     {
                         // Map values from UI inputs to SQL Parameters to prevent SQL Injection
                         cmd.Parameters.AddWithValue("@patientID", txtPatientID.Text.Trim());
-                        cmd.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
                         cmd.Parameters.AddWithValue("@email", txtEmail.Text.Trim());
                         cmd.Parameters.AddWithValue("@phoneNumber", txtPhoneNumber.Text.Trim());
                         cmd.Parameters.AddWithValue("@address", txtAddress.Text.Trim());
@@ -145,7 +144,6 @@ namespace Project_01
 
                 // Pull data directly using your column names from the SQL query
                 txtPatientID.Text = row.Cells["patientID"].Value?.ToString();
-                txtPassword.Text = row.Cells["password"].Value?.ToString();
                 txtEmail.Text = row.Cells["email"].Value?.ToString();
                 txtPhoneNumber.Text = row.Cells["phoneNumber"].Value?.ToString();
                 txtAddress.Text = row.Cells["address"].Value?.ToString();
@@ -168,6 +166,11 @@ namespace Project_01
                     picPatientImage.Image = null; // Clear old image if entry is empty
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

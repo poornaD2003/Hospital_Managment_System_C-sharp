@@ -17,6 +17,8 @@
 
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelHeader = new Panel();
             lblHeader = new Label();
             panelSearch = new Panel();
@@ -43,8 +45,9 @@
             panelHeader.Controls.Add(lblHeader);
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(0, 0);
+            panelHeader.Margin = new Padding(3, 2, 3, 2);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(800, 55);
+            panelHeader.Size = new Size(700, 41);
             panelHeader.TabIndex = 5;
             // 
             // lblHeader
@@ -52,9 +55,9 @@
             lblHeader.AutoSize = true;
             lblHeader.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblHeader.ForeColor = Color.White;
-            lblHeader.Location = new Point(15, 10);
+            lblHeader.Location = new Point(13, 8);
             lblHeader.Name = "lblHeader";
-            lblHeader.Size = new Size(200, 37);
+            lblHeader.Size = new Size(175, 30);
             lblHeader.TabIndex = 0;
             lblHeader.Text = "Patient Records";
             // 
@@ -64,9 +67,10 @@
             panelSearch.Controls.Add(btnSearch);
             panelSearch.Controls.Add(txtSearch);
             panelSearch.Controls.Add(lblSearchHint);
-            panelSearch.Location = new Point(12, 72);
+            panelSearch.Location = new Point(10, 54);
+            panelSearch.Margin = new Padding(3, 2, 3, 2);
             panelSearch.Name = "panelSearch";
-            panelSearch.Size = new Size(776, 55);
+            panelSearch.Size = new Size(679, 41);
             panelSearch.TabIndex = 6;
             // 
             // btnSearch
@@ -75,9 +79,10 @@
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnSearch.ForeColor = Color.White;
-            btnSearch.Location = new Point(670, 12);
+            btnSearch.Location = new Point(586, 9);
+            btnSearch.Margin = new Padding(3, 2, 3, 2);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(90, 30);
+            btnSearch.Size = new Size(79, 22);
             btnSearch.TabIndex = 2;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = false;
@@ -86,9 +91,10 @@
             // txtSearch
             // 
             txtSearch.Font = new Font("Segoe UI", 10F);
-            txtSearch.Location = new Point(120, 12);
+            txtSearch.Location = new Point(105, 9);
+            txtSearch.Margin = new Padding(3, 2, 3, 2);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(540, 30);
+            txtSearch.Size = new Size(473, 25);
             txtSearch.TabIndex = 1;
             // 
             // lblSearchHint
@@ -96,29 +102,36 @@
             lblSearchHint.AutoSize = true;
             lblSearchHint.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblSearchHint.ForeColor = Color.DarkGreen;
-            lblSearchHint.Location = new Point(8, 15);
+            lblSearchHint.Location = new Point(7, 11);
             lblSearchHint.Name = "lblSearchHint";
-            lblSearchHint.Size = new Size(106, 23);
+            lblSearchHint.Size = new Size(79, 19);
             lblSearchHint.TabIndex = 0;
             lblSearchHint.Text = "Search by:";
             // 
             // dgvPatients
             // 
             dgvPatients.AllowUserToAddRows = false;
-            dgvPatients.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 240);
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(240, 248, 240);
+            dgvPatients.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvPatients.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPatients.BackgroundColor = Color.White;
             dgvPatients.BorderStyle = BorderStyle.None;
             dgvPatients.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dgvPatients.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkGreen;
-            dgvPatients.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dgvPatients.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.DarkGreen;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvPatients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvPatients.ColumnHeadersHeight = 40;
             dgvPatients.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvPatients.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
             dgvPatients.EnableHeadersVisualStyles = false;
             dgvPatients.GridColor = Color.FromArgb(220, 220, 220);
-            dgvPatients.Location = new Point(12, 135);
+            dgvPatients.Location = new Point(10, 101);
+            dgvPatients.Margin = new Padding(3, 2, 3, 2);
             dgvPatients.Name = "dgvPatients";
             dgvPatients.ReadOnly = true;
             dgvPatients.RowHeadersVisible = false;
@@ -126,53 +139,56 @@
             dgvPatients.RowTemplate.DefaultCellStyle.Font = new Font("Segoe UI", 10F);
             dgvPatients.RowTemplate.Height = 32;
             dgvPatients.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPatients.Size = new Size(776, 240);
+            dgvPatients.Size = new Size(679, 180);
             dgvPatients.TabIndex = 3;
             dgvPatients.CellClick += dgvPatients_CellContentClick;
+            dgvPatients.CellContentClick += dgvPatients_CellContentClick_1;
             // 
             // Column1
             // 
             Column1.HeaderText = "Patient ID";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
-            Column1.Width = 80;
+            Column1.ReadOnly = true;
             // 
             // Column2
             // 
             Column2.HeaderText = "Name";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
-            Column2.Width = 200;
+            Column2.ReadOnly = true;
             // 
             // Column3
             // 
             Column3.HeaderText = "Gender";
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
-            Column3.Width = 90;
+            Column3.ReadOnly = true;
             // 
             // Column4
             // 
             Column4.HeaderText = "Age";
             Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
-            Column4.Width = 70;
+            Column4.ReadOnly = true;
             // 
             // Column5
             // 
             Column5.HeaderText = "Phone";
             Column5.MinimumWidth = 6;
             Column5.Name = "Column5";
-            Column5.Width = 150;
+            Column5.ReadOnly = true;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(txtHistory);
             groupBox1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             groupBox1.ForeColor = Color.DarkGreen;
-            groupBox1.Location = new Point(12, 385);
+            groupBox1.Location = new Point(10, 289);
+            groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(776, 160);
+            groupBox1.Padding = new Padding(3, 2, 3, 2);
+            groupBox1.Size = new Size(679, 120);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "  Patient History  ";
@@ -181,23 +197,25 @@
             // 
             txtHistory.BackColor = Color.White;
             txtHistory.Font = new Font("Segoe UI", 9F);
-            txtHistory.Location = new Point(10, 25);
+            txtHistory.Location = new Point(9, 19);
+            txtHistory.Margin = new Padding(3, 2, 3, 2);
             txtHistory.Name = "txtHistory";
             txtHistory.ReadOnly = true;
-            txtHistory.Size = new Size(756, 125);
+            txtHistory.Size = new Size(662, 95);
             txtHistory.TabIndex = 0;
             txtHistory.Text = "";
             // 
             // PatientForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(800, 560);
+            ClientSize = new Size(700, 420);
             Controls.Add(panelSearch);
             Controls.Add(panelHeader);
             Controls.Add(groupBox1);
             Controls.Add(dgvPatients);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "PatientForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Patient Records";
