@@ -176,6 +176,7 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(button4);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(pictureBox1);
@@ -364,6 +365,7 @@
             button4.Text = "      \U0001fa7a  Profile";
             button4.TextAlign = ContentAlignment.MiddleLeft;
             button4.UseVisualStyleBackColor = true;
+            
             // 
             // Form1
             // 

@@ -3,17 +3,19 @@ namespace Project_01
 {
     public partial class Form1 : Form
     {
+
         private string _doctorUsername;
 
-        public Form1()
+       
+
+        private int currentUserId;
+        public Form1(int userId)
         {
             InitializeComponent();
+            this.currentUserId = userId;
         }
 
-        public Form1(string doctorUsername) : this()
-        {
-            _doctorUsername = doctorUsername;
-        }
+        
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -58,7 +60,7 @@ namespace Project_01
 
             try
             {
-                using (SqlConnection con = DB.GetConnection())
+                using (SqlConnection con = dbConnection.GetConnection())
                 {
                     string query =
                     @"SELECT
@@ -199,8 +201,12 @@ namespace Project_01
         {
             try
             {
+
                 string searchName = _doctorUsername ?? "";
-                using (SqlConnection con = DB.GetConnection())
+             
+
+                using (SqlConnection con = dbConnection.GetConnection())
+
                 {
                     string query = "SELECT doctorName, specialization FROM doctor WHERE doctorName LIKE @name";
                     SqlCommand cmd = new SqlCommand(query, con);
@@ -224,6 +230,18 @@ namespace Project_01
                         }
                     }
                 }
+
+
+                using (SqlConnection con = dbConnection.GetConnection())
+                {
+                    string query = "SELECT specialization FROM doctor WHERE doctorID = '1'";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    con.Open();
+                    object spec = cmd.ExecuteScalar();
+                    label4.Text = spec != null && !string.IsNullOrWhiteSpace(spec.ToString())
+                        ? spec.ToString() : "General Practitioner";
+                }
+
             }
             catch
             {
@@ -237,7 +255,7 @@ namespace Project_01
         {
             try
             {
-                using (SqlConnection con = DB.GetConnection())
+                using (SqlConnection con = dbConnection.GetConnection())
                 {
                     string query =
                     @"SELECT COUNT(DISTINCT p.patientID)
@@ -261,7 +279,7 @@ namespace Project_01
         {
             try
             {
-                using (SqlConnection con = DB.GetConnection())
+                using (SqlConnection con = dbConnection.GetConnection())
                 {
                     string query =
                     @"SELECT COUNT(*)
@@ -294,9 +312,16 @@ namespace Project_01
             frm.Show();
         }
 
+
         private void lblWelcome_Click(object sender, EventArgs e)
+        { }
+
+        private void button4_Click_1(object sender, EventArgs e)
         {
+            doctorDataEdit editData = new doctorDataEdit(currentUserId);
+            editData.Show();
 
         }
     }
 }
+

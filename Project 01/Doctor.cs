@@ -18,7 +18,7 @@ namespace Project_01
                 {
                     conn.Open();
 
-                    string sql = "SELECT password FROM [user] WHERE userName = @username";
+                    string sql = "SELECT UserId,password FROM [user] WHERE userName = @username";
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
@@ -34,9 +34,12 @@ namespace Project_01
 
                                 bool isValid = BCrypt.Net.BCrypt.Verify(getPassword(), storedHash);
 
+
                                 if (isValid)
                                 {
-                                    Form1 doctorDashboard = new Form1(this.getUsername());
+                                    
+                                    int loggedInUserId = Convert.ToInt32(reader["UserId"]);
+                                    Form1 doctorDashboard = new Form1(loggedInUserId);
                                     doctorDashboard.Show();
                                 }
                                 else

@@ -12,8 +12,7 @@ namespace Project_01
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new login(new signUp(null)));
-            //Application.Run(new Form1());
-            //Application.Run(new doctorRegestor());
+
         }
     }
 }
