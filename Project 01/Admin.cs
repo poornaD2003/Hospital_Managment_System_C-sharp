@@ -5,15 +5,17 @@ using System.Text;
 
 namespace Project_01
 {
-    internal class Admin: User
+    internal class Admin : User
     {
-        public Admin(string username, string password):base(username, password)
+        public Admin(string username, string password) : base(username, password)
         {
 
         }
         public override void openPage()
         {
-            try
+            adminPage adminDashboard = new adminPage();
+            adminDashboard.Show();
+            /*try
             {
                 using (SqlConnection conn = dbConnection.GetConnection())
                 {
@@ -30,7 +32,7 @@ namespace Project_01
                             if (reader.Read())
                             {
                                 string storedHash = reader["password"].ToString();
-                               
+
 
 
                                 bool isValid = BCrypt.Net.BCrypt.Verify(getPassword(), storedHash);
@@ -57,6 +59,7 @@ namespace Project_01
             {
                 MessageBox.Show("Database Error: " + ex.Message);
             }
+            */
         }
     }
 }

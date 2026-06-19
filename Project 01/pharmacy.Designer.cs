@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel1 = new Panel();
+            button1 = new Button();
             label6 = new Label();
             idLabel = new Label();
             updateBtn = new Button();
@@ -47,7 +48,6 @@
             searchBox = new TextBox();
             panel2 = new Panel();
             loadMedicine = new DataGridView();
-            button1 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)stockBox).BeginInit();
             panel2.SuspendLayout();
@@ -74,27 +74,40 @@
             panel1.Controls.Add(label1);
             panel1.Controls.Add(searchBox);
             panel1.Location = new Point(-4, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(475, 641);
+            panel1.Size = new Size(416, 481);
             panel1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(0, 107, 84);
+            button1.BackgroundImage = Properties.Resources.Vector;
+            button1.BackgroundImageLayout = ImageLayout.Center;
+            button1.Location = new Point(35, 16);
+            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Name = "button1";
+            button1.Size = new Size(39, 22);
+            button1.TabIndex = 1;
+            button1.UseVisualStyleBackColor = false;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.BackColor = Color.Transparent;
             label6.ForeColor = Color.Transparent;
-            label6.Location = new Point(40, 80);
+            label6.Location = new Point(35, 60);
             label6.Name = "label6";
-            label6.Size = new Size(53, 20);
+            label6.Size = new Size(42, 15);
             label6.TabIndex = 15;
             label6.Text = "Search";
             // 
             // idLabel
             // 
             idLabel.AutoSize = true;
-            idLabel.Location = new Point(432, 177);
+            idLabel.Location = new Point(378, 133);
             idLabel.Name = "idLabel";
-            idLabel.Size = new Size(0, 20);
+            idLabel.Size = new Size(0, 15);
             idLabel.TabIndex = 14;
             // 
             // updateBtn
@@ -102,9 +115,10 @@
             updateBtn.BackColor = SystemColors.ActiveCaptionText;
             updateBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             updateBtn.ForeColor = SystemColors.ButtonHighlight;
-            updateBtn.Location = new Point(30, 546);
+            updateBtn.Location = new Point(26, 410);
+            updateBtn.Margin = new Padding(3, 2, 3, 2);
             updateBtn.Name = "updateBtn";
-            updateBtn.Size = new Size(382, 34);
+            updateBtn.Size = new Size(334, 26);
             updateBtn.TabIndex = 13;
             updateBtn.Text = "Update";
             updateBtn.UseVisualStyleBackColor = false;
@@ -115,9 +129,10 @@
             addBtn.BackColor = Color.FromArgb(0, 107, 84);
             addBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             addBtn.ForeColor = SystemColors.ButtonHighlight;
-            addBtn.Location = new Point(30, 500);
+            addBtn.Location = new Point(26, 375);
+            addBtn.Margin = new Padding(3, 2, 3, 2);
             addBtn.Name = "addBtn";
-            addBtn.Size = new Size(382, 40);
+            addBtn.Size = new Size(334, 30);
             addBtn.TabIndex = 12;
             addBtn.Text = "Add";
             addBtn.UseVisualStyleBackColor = false;
@@ -125,9 +140,10 @@
             // 
             // dateBox
             // 
-            dateBox.Location = new Point(40, 306);
+            dateBox.Location = new Point(35, 230);
+            dateBox.Margin = new Padding(3, 2, 3, 2);
             dateBox.Name = "dateBox";
-            dateBox.Size = new Size(372, 27);
+            dateBox.Size = new Size(326, 23);
             dateBox.TabIndex = 11;
             // 
             // label5
@@ -135,9 +151,9 @@
             label5.AutoSize = true;
             label5.BackColor = Color.Transparent;
             label5.ForeColor = SystemColors.ButtonHighlight;
-            label5.Location = new Point(40, 283);
+            label5.Location = new Point(35, 212);
             label5.Name = "label5";
-            label5.Size = new Size(86, 20);
+            label5.Size = new Size(65, 15);
             label5.TabIndex = 10;
             label5.Text = "Expier Date";
             // 
@@ -145,9 +161,10 @@
             // 
             categoryBox.FormattingEnabled = true;
             categoryBox.Items.AddRange(new object[] { "Tablets", "", "Capsules", "", "Syrups", "", "Injections", "", "Drops (Eye drops / Ear drops / Nasal drops)", "", "Ointments", "", "Creams", "", "Gels", "", "Lotions", "", "Inhalers", "", "Powders", "", "Suspensions", "", "Solutions", "", "Vaccines", "", "Herbal Medicines", "", "Antibiotics", "", "Painkillers (Analgesics)", "", "Antiseptics", "", "Vitamins & Supplements", "", "Hormonal Medicines" });
-            categoryBox.Location = new Point(40, 238);
+            categoryBox.Location = new Point(35, 178);
+            categoryBox.Margin = new Padding(3, 2, 3, 2);
             categoryBox.Name = "categoryBox";
-            categoryBox.Size = new Size(372, 28);
+            categoryBox.Size = new Size(326, 23);
             categoryBox.TabIndex = 9;
             // 
             // label4
@@ -155,18 +172,19 @@
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
             label4.ForeColor = SystemColors.ButtonHighlight;
-            label4.Location = new Point(40, 215);
+            label4.Location = new Point(35, 161);
             label4.Name = "label4";
-            label4.Size = new Size(69, 20);
+            label4.Size = new Size(55, 15);
             label4.TabIndex = 8;
             label4.Text = "Category";
             label4.Click += label4_Click;
             // 
             // priceBox
             // 
-            priceBox.Location = new Point(40, 439);
+            priceBox.Location = new Point(35, 329);
+            priceBox.Margin = new Padding(3, 2, 3, 2);
             priceBox.Name = "priceBox";
-            priceBox.Size = new Size(372, 27);
+            priceBox.Size = new Size(326, 23);
             priceBox.TabIndex = 7;
             // 
             // label3
@@ -174,17 +192,18 @@
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
             label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(40, 416);
+            label3.Location = new Point(35, 312);
             label3.Name = "label3";
-            label3.Size = new Size(41, 20);
+            label3.Size = new Size(33, 15);
             label3.TabIndex = 6;
             label3.Text = "Price";
             // 
             // stockBox
             // 
-            stockBox.Location = new Point(40, 372);
+            stockBox.Location = new Point(35, 279);
+            stockBox.Margin = new Padding(3, 2, 3, 2);
             stockBox.Name = "stockBox";
-            stockBox.Size = new Size(372, 27);
+            stockBox.Size = new Size(326, 23);
             stockBox.TabIndex = 5;
             // 
             // label2
@@ -192,17 +211,18 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(40, 349);
+            label2.Location = new Point(35, 262);
             label2.Name = "label2";
-            label2.Size = new Size(45, 20);
+            label2.Size = new Size(36, 15);
             label2.TabIndex = 4;
             label2.Text = "Stock";
             // 
             // nameBox
             // 
-            nameBox.Location = new Point(40, 174);
+            nameBox.Location = new Point(35, 130);
+            nameBox.Margin = new Padding(3, 2, 3, 2);
             nameBox.Name = "nameBox";
-            nameBox.Size = new Size(372, 27);
+            nameBox.Size = new Size(326, 23);
             nameBox.TabIndex = 3;
             // 
             // label1
@@ -210,18 +230,19 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(40, 151);
+            label1.Location = new Point(35, 113);
             label1.Name = "label1";
-            label1.Size = new Size(114, 20);
+            label1.Size = new Size(91, 15);
             label1.TabIndex = 2;
             label1.Text = "Medicine Name";
             // 
             // searchBox
             // 
             searchBox.BackColor = Color.Gainsboro;
-            searchBox.Location = new Point(40, 103);
+            searchBox.Location = new Point(35, 77);
+            searchBox.Margin = new Padding(3, 2, 3, 2);
             searchBox.Name = "searchBox";
-            searchBox.Size = new Size(372, 27);
+            searchBox.Size = new Size(326, 23);
             searchBox.TabIndex = 0;
             searchBox.TextChanged += searchBox_TextChanged;
             searchBox.Enter += searchBox_Enter;
@@ -230,9 +251,10 @@
             // panel2
             // 
             panel2.Controls.Add(loadMedicine);
-            panel2.Location = new Point(470, 0);
+            panel2.Location = new Point(411, 0);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(772, 638);
+            panel2.Size = new Size(676, 478);
             panel2.TabIndex = 1;
             // 
             // loadMedicine
@@ -246,33 +268,24 @@
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             loadMedicine.DefaultCellStyle = dataGridViewCellStyle1;
-            loadMedicine.Location = new Point(7, 21);
+            loadMedicine.Location = new Point(0, 16);
+            loadMedicine.Margin = new Padding(3, 2, 3, 2);
             loadMedicine.Name = "loadMedicine";
             loadMedicine.RowHeadersWidth = 51;
-            loadMedicine.Size = new Size(752, 603);
+            loadMedicine.Size = new Size(658, 452);
             loadMedicine.TabIndex = 0;
             loadMedicine.CellClick += loadMedicine_CellClick;
             loadMedicine.CellContentClick += loadMedicine_CellContentClick;
             // 
-            // button1
-            // 
-            button1.BackColor = Color.FromArgb(0, 107, 84);
-            button1.BackgroundImage = Properties.Resources.Vector;
-            button1.BackgroundImageLayout = ImageLayout.Center;
-            button1.Location = new Point(40, 21);
-            button1.Name = "button1";
-            button1.Size = new Size(45, 29);
-            button1.TabIndex = 1;
-            button1.UseVisualStyleBackColor = false;
-            // 
             // pharmacy
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1241, 636);
+            ClientSize = new Size(1086, 477);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "pharmacy";
             Text = "pharmacy";
             panel1.ResumeLayout(false);
