@@ -37,9 +37,11 @@ namespace Project_01
 
                                 if (isValid)
                                 {
+
                                     int loggedInUserId = Convert.ToInt32(reader["UserId"]);
                                     Form1 doctorDashboard = new Form1(loggedInUserId);
                                     doctorDashboard.Show();
+                                    
                                 }
                                 else
                                 {

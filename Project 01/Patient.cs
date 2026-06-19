@@ -40,11 +40,13 @@ namespace Project_01
                                 {
                                     patientPage patientDashboard = new patientPage(pID);
                                     patientDashboard.Show();
+                                   
                                 }
                                 else
                                 {
                                     MessageBox.Show("Invalid password. Please try again.");
                                 }
+                                
                             }
                             else
                             {
