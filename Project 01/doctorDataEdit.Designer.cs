@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(doctorDataEdit));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -62,7 +63,9 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Ivory;
             label1.Location = new Point(48, 121);
             label1.Name = "label1";
             label1.Size = new Size(91, 23);
@@ -72,7 +75,9 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Ivory;
             label2.Location = new Point(48, 191);
             label2.Name = "label2";
             label2.Size = new Size(54, 23);
@@ -82,7 +87,9 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Ivory;
             label3.Location = new Point(48, 276);
             label3.Name = "label3";
             label3.Size = new Size(130, 23);
@@ -92,7 +99,9 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Ivory;
             label4.Location = new Point(48, 354);
             label4.Name = "label4";
             label4.Size = new Size(74, 23);
@@ -102,7 +111,9 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.Ivory;
             label5.Location = new Point(48, 435);
             label5.Name = "label5";
             label5.Size = new Size(42, 23);
@@ -112,7 +123,9 @@
             // label6
             // 
             label6.AutoSize = true;
+            label6.BackColor = Color.Transparent;
             label6.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.Ivory;
             label6.Location = new Point(48, 514);
             label6.Name = "label6";
             label6.Size = new Size(68, 23);
@@ -122,7 +135,9 @@
             // label7
             // 
             label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
             label7.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.Ivory;
             label7.Location = new Point(48, 602);
             label7.Name = "label7";
             label7.Size = new Size(121, 23);
@@ -132,7 +147,9 @@
             // label8
             // 
             label8.AutoSize = true;
+            label8.BackColor = Color.Transparent;
             label8.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.Ivory;
             label8.Location = new Point(48, 686);
             label8.Name = "label8";
             label8.Size = new Size(97, 23);
@@ -142,8 +159,10 @@
             // label9
             // 
             label9.AutoSize = true;
+            label9.BackColor = Color.Transparent;
             label9.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(48, 769);
+            label9.ForeColor = Color.Ivory;
+            label9.Location = new Point(449, 686);
             label9.Name = "label9";
             label9.Size = new Size(99, 23);
             label9.TabIndex = 8;
@@ -152,8 +171,9 @@
             // label10
             // 
             label10.AutoSize = true;
+            label10.BackColor = Color.Transparent;
             label10.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.FromArgb(45, 106, 79);
+            label10.ForeColor = Color.DarkGreen;
             label10.Location = new Point(47, 18);
             label10.Name = "label10";
             label10.Size = new Size(327, 39);
@@ -204,7 +224,7 @@
             // 
             // timeBox
             // 
-            timeBox.Location = new Point(63, 805);
+            timeBox.Location = new Point(464, 722);
             timeBox.Name = "timeBox";
             timeBox.Size = new Size(337, 27);
             timeBox.TabIndex = 18;
@@ -229,9 +249,9 @@
             // 
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox1.Image = Properties.Resources._8a8d3f62663f719adc1b4402d1ce9d8f;
-            pictureBox1.Location = new Point(545, 107);
+            pictureBox1.Location = new Point(600, 107);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(280, 219);
+            pictureBox1.Size = new Size(216, 219);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 20;
             pictureBox1.TabStop = false;
@@ -254,7 +274,7 @@
             updateBtn.BackColor = Color.FromArgb(0, 107, 80);
             updateBtn.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             updateBtn.ForeColor = SystemColors.Control;
-            updateBtn.Location = new Point(323, 956);
+            updateBtn.Location = new Point(321, 916);
             updateBtn.Name = "updateBtn";
             updateBtn.Size = new Size(237, 44);
             updateBtn.TabIndex = 22;
@@ -265,7 +285,9 @@
             // label11
             // 
             label11.AutoSize = true;
+            label11.BackColor = Color.Transparent;
             label11.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.ForeColor = Color.ForestGreen;
             label11.Location = new Point(50, 82);
             label11.Name = "label11";
             label11.Size = new Size(193, 23);
@@ -275,8 +297,10 @@
             // label12
             // 
             label12.AutoSize = true;
+            label12.BackColor = Color.Transparent;
             label12.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(47, 858);
+            label12.ForeColor = Color.ForestGreen;
+            label12.Location = new Point(47, 776);
             label12.Name = "label12";
             label12.Size = new Size(192, 23);
             label12.TabIndex = 24;
@@ -285,8 +309,10 @@
             // label13
             // 
             label13.AutoSize = true;
+            label13.BackColor = Color.Transparent;
             label13.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.Location = new Point(50, 895);
+            label13.ForeColor = Color.Ivory;
+            label13.Location = new Point(50, 813);
             label13.Name = "label13";
             label13.Size = new Size(119, 23);
             label13.TabIndex = 25;
@@ -295,8 +321,10 @@
             // label14
             // 
             label14.AutoSize = true;
+            label14.BackColor = Color.Transparent;
             label14.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label14.Location = new Point(464, 895);
+            label14.ForeColor = Color.Ivory;
+            label14.Location = new Point(449, 813);
             label14.Name = "label14";
             label14.Size = new Size(126, 23);
             label14.TabIndex = 26;
@@ -304,24 +332,26 @@
             // 
             // oldpasBox
             // 
-            oldpasBox.Location = new Point(205, 894);
+            oldpasBox.Location = new Point(63, 839);
             oldpasBox.Name = "oldpasBox";
             oldpasBox.PasswordChar = '*';
-            oldpasBox.Size = new Size(212, 27);
+            oldpasBox.Size = new Size(337, 27);
             oldpasBox.TabIndex = 27;
             // 
             // newpassBox
             // 
-            newpassBox.Location = new Point(613, 891);
+            newpassBox.Location = new Point(464, 839);
             newpassBox.Name = "newpassBox";
             newpassBox.PasswordChar = '*';
-            newpassBox.Size = new Size(212, 27);
+            newpassBox.Size = new Size(337, 27);
             newpassBox.TabIndex = 28;
             // 
             // doctorDataEdit
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(908, 1007);
             Controls.Add(newpassBox);
             Controls.Add(oldpasBox);
