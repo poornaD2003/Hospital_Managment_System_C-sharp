@@ -110,6 +110,9 @@ namespace Project_01
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     MessageBox.Show($"User registered successfully! Your ID is: {newPatientID}");
+                    login loginPage = new login(this);
+                    this.Close();
+                    loginPage.Show();
                 }
                 catch (Exception ex)
                 {
