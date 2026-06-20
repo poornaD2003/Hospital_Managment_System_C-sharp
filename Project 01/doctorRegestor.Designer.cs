@@ -37,7 +37,11 @@
             panel2 = new Panel();
             label2 = new Label();
             button1 = new Button();
+            pictureBox4 = new PictureBox();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -51,9 +55,11 @@
             // 
             // dNameField
             // 
-            dNameField.Location = new Point(492, 138);
+            dNameField.BorderStyle = BorderStyle.None;
+            dNameField.Location = new Point(527, 138);
+            dNameField.Multiline = true;
             dNameField.Name = "dNameField";
-            dNameField.Size = new Size(265, 27);
+            dNameField.Size = new Size(230, 27);
             dNameField.TabIndex = 1;
             // 
             // Password
@@ -67,9 +73,9 @@
             // 
             // passwordField
             // 
-            passwordField.Location = new Point(492, 226);
+            passwordField.Location = new Point(527, 226);
             passwordField.Name = "passwordField";
-            passwordField.Size = new Size(261, 27);
+            passwordField.Size = new Size(226, 27);
             passwordField.TabIndex = 3;
             // 
             // submitBtn
@@ -127,11 +133,33 @@
             button1.TabIndex = 7;
             button1.UseVisualStyleBackColor = false;
             // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.user;
+            pictureBox4.Location = new Point(492, 138);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(36, 27);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 25;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.padlock1;
+            pictureBox1.Location = new Point(492, 226);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(36, 27);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 26;
+            pictureBox1.TabStop = false;
+            // 
             // doctorRegestor
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(864, 569);
+            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox4);
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(panel1);
@@ -144,6 +172,8 @@
             Name = "doctorRegestor";
             Text = "doctorRegestor";
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -159,5 +189,7 @@
         private Label label2;
         private Panel panel2;
         private Button button1;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox1;
     }
 }

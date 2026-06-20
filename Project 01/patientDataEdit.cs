@@ -20,7 +20,7 @@ namespace Project_01
         public patientDataEdit(string pID)
         {
             InitializeComponent();
-            
+
             this.pID = pID;
             LoadProfileData();
         }
@@ -72,7 +72,7 @@ namespace Project_01
             string name = nameBox.Text;
             string password = passBox.Text;
             string email = emailBox.Text;
-            string number =numberBox.Text;
+            string number = numberBox.Text;
             string address = addressBox.Text;
             string age = ageBox.Text;
             string sex = sexBox.SelectedItem?.ToString() ?? "";
@@ -102,7 +102,7 @@ namespace Project_01
                     conn.Open();
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@password", hashedPassword); 
+                        cmd.Parameters.AddWithValue("@password", hashedPassword);
                         cmd.Parameters.AddWithValue("@email", email);
                         cmd.Parameters.AddWithValue("@number", number);
                         cmd.Parameters.AddWithValue("@address", address);
@@ -128,7 +128,8 @@ namespace Project_01
                     }
 
                 }
-                catch(Exception ex) {
+                catch (Exception ex)
+                {
                     MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -137,6 +138,11 @@ namespace Project_01
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void patientDataEdit_Load(object sender, EventArgs e)
         {
 
         }

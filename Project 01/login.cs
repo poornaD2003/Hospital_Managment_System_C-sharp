@@ -96,5 +96,10 @@ namespace Project_01
         {
             this.Close();
         }
+
+        private void passwordField_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

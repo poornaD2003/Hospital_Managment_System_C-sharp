@@ -89,13 +89,14 @@
             // 
             // passwordField
             // 
-            passwordField.BorderStyle = BorderStyle.None;
+            passwordField.BorderStyle = BorderStyle.FixedSingle;
             passwordField.Location = new Point(584, 194);
-            passwordField.Multiline = true;
             passwordField.Name = "passwordField";
+            passwordField.PasswordChar = '●';
             passwordField.Size = new Size(257, 27);
             passwordField.TabIndex = 3;
             passwordField.UseSystemPasswordChar = true;
+            passwordField.TextChanged += passwordField_TextChanged;
             // 
             // loginBtn
             // 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(signUp));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -49,8 +50,16 @@
             imageBox = new PictureBox();
             label8 = new Label();
             button1 = new Button();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox4 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)ageField).BeginInit();
             ((System.ComponentModel.ISupportInitialize)imageBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -59,7 +68,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ActiveCaptionText;
-            label1.Location = new Point(45, 295);
+            label1.Location = new Point(64, 298);
             label1.Name = "label1";
             label1.Size = new Size(99, 28);
             label1.TabIndex = 0;
@@ -71,7 +80,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ActiveCaptionText;
-            label2.Location = new Point(45, 352);
+            label2.Location = new Point(64, 355);
             label2.Name = "label2";
             label2.Size = new Size(101, 28);
             label2.TabIndex = 1;
@@ -108,14 +117,14 @@
             userNameField.BorderStyle = BorderStyle.FixedSingle;
             userNameField.Cursor = Cursors.IBeam;
             userNameField.ImeMode = ImeMode.NoControl;
-            userNameField.Location = new Point(50, 326);
+            userNameField.Location = new Point(69, 329);
             userNameField.Name = "userNameField";
             userNameField.Size = new Size(248, 27);
             userNameField.TabIndex = 4;
             // 
             // passswordField
             // 
-            passswordField.Location = new Point(50, 383);
+            passswordField.Location = new Point(69, 386);
             passswordField.Name = "passswordField";
             passswordField.Size = new Size(248, 27);
             passswordField.TabIndex = 5;
@@ -276,6 +285,46 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_1;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(31, 329);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(36, 27);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 23;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(31, 386);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(36, 27);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 24;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(378, 326);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(36, 27);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 25;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(378, 386);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(36, 27);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 26;
+            pictureBox4.TabStop = false;
+            // 
             // signUp
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -283,6 +332,10 @@
             BackColor = Color.FromArgb(244, 246, 248);
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(733, 793);
+            Controls.Add(pictureBox4);
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
             Controls.Add(label3);
             Controls.Add(label4);
             Controls.Add(label1);
@@ -310,6 +363,10 @@
             Text = "signUp";
             ((System.ComponentModel.ISupportInitialize)ageField).EndInit();
             ((System.ComponentModel.ISupportInitialize)imageBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -337,5 +394,9 @@
         private PictureBox imageBox;
         private Label label8;
         private Button button1;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
     }
 }

@@ -176,5 +176,10 @@ namespace Project_01
                 return ms.ToArray();
             }
         }
+
+        private void doctorDataEdit_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -36,6 +36,10 @@
             nameBox = new TextBox();
             passBox = new TextBox();
             registerBtn = new Button();
+            pictureBox4 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -77,17 +81,20 @@
             // 
             // nameBox
             // 
-            nameBox.Location = new Point(389, 136);
+            nameBox.BorderStyle = BorderStyle.None;
+            nameBox.Location = new Point(407, 139);
+            nameBox.Multiline = true;
             nameBox.Name = "nameBox";
-            nameBox.Size = new Size(308, 27);
+            nameBox.Size = new Size(290, 27);
             nameBox.TabIndex = 4;
             // 
             // passBox
             // 
-            passBox.Location = new Point(389, 201);
+            passBox.BorderStyle = BorderStyle.FixedSingle;
+            passBox.Location = new Point(407, 201);
             passBox.Name = "passBox";
             passBox.PasswordChar = '•';
-            passBox.Size = new Size(308, 27);
+            passBox.Size = new Size(290, 27);
             passBox.TabIndex = 5;
             // 
             // registerBtn
@@ -103,11 +110,33 @@
             registerBtn.UseVisualStyleBackColor = false;
             registerBtn.Click += registerBtn_Click;
             // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.user;
+            pictureBox4.Location = new Point(372, 139);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(36, 27);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 24;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.padlock;
+            pictureBox1.Location = new Point(372, 201);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(36, 27);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 25;
+            pictureBox1.TabStop = false;
+            // 
             // adminRegister
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(783, 450);
+            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox4);
             Controls.Add(registerBtn);
             Controls.Add(passBox);
             Controls.Add(nameBox);
@@ -117,6 +146,8 @@
             Controls.Add(panel1);
             Name = "adminRegister";
             Text = "adminRegister";
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -130,5 +161,7 @@
         private TextBox nameBox;
         private TextBox passBox;
         private Button registerBtn;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox1;
     }
 }
