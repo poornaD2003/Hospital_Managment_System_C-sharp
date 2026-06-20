@@ -42,6 +42,7 @@ namespace Project_01
                                     Form1 doctorDashboard = new Form1(loggedInUserId);
                                     doctorDashboard.Show();
                                     
+
                                 }
                                 else
                                 {
@@ -60,6 +61,7 @@ namespace Project_01
             {
                 MessageBox.Show("Database Error: " + ex.Message);
             }
+            
         }
     }
 }

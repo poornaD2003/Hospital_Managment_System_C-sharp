@@ -52,6 +52,7 @@ namespace Project_01
             {
                 case "Patient":
                     user = new Patient(username, password);
+                    
                     break;
                 case "Doctor":
                     user = new Doctor(username, password);
