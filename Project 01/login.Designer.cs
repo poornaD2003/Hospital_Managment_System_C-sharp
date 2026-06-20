@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
             label1 = new Label();
             label2 = new Label();
             userNameField = new TextBox();
@@ -44,7 +45,12 @@
             label5 = new Label();
             label4 = new Label();
             label9 = new Label();
+            exitBtn = new Button();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -73,7 +79,9 @@
             // 
             // userNameField
             // 
+            userNameField.BorderStyle = BorderStyle.None;
             userNameField.Location = new Point(580, 126);
+            userNameField.Multiline = true;
             userNameField.Name = "userNameField";
             userNameField.Size = new Size(258, 27);
             userNameField.TabIndex = 2;
@@ -81,7 +89,9 @@
             // 
             // passwordField
             // 
+            passwordField.BorderStyle = BorderStyle.None;
             passwordField.Location = new Point(584, 194);
+            passwordField.Multiline = true;
             passwordField.Name = "passwordField";
             passwordField.Size = new Size(257, 27);
             passwordField.TabIndex = 3;
@@ -232,12 +242,45 @@
             label9.TabIndex = 10;
             label9.Text = "Role";
             // 
+            // exitBtn
+            // 
+            exitBtn.Location = new Point(874, 21);
+            exitBtn.Name = "exitBtn";
+            exitBtn.Size = new Size(40, 31);
+            exitBtn.TabIndex = 11;
+            exitBtn.Text = "❌";
+            exitBtn.UseVisualStyleBackColor = true;
+            exitBtn.Click += exitBtn_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(538, 126);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(36, 27);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 12;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(538, 194);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(36, 27);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 13;
+            pictureBox2.TabStop = false;
+            // 
             // login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(944, 660);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
+            Controls.Add(exitBtn);
             Controls.Add(label9);
             Controls.Add(panel2);
             Controls.Add(label2);
@@ -257,6 +300,8 @@
             Load += login_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -279,5 +324,8 @@
         private Label label7;
         private Label label8;
         private Label label9;
+        private Button exitBtn;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }

@@ -70,14 +70,16 @@ namespace Project_01
         {
             patientBookAppointment frm = new patientBookAppointment(patientID);
             frm.ShowDialog();
-            LoadPatientSummary(); // Refresh summary if updated
+            LoadPatientSummary(); 
         }
 
         private void btnManageAccount_Click(object sender, EventArgs e)
         {
             patientDataEdit frm = new patientDataEdit(patientID);
+            
             frm.ShowDialog();
-            LoadPatientSummary(); // Refresh summary in case name/details updated
+
+            LoadPatientSummary(); 
         }
 
         private void btnExportPDF_Click(object sender, EventArgs e)
@@ -156,7 +158,7 @@ namespace Project_01
                             doc.Add(new Paragraph("Date: " + DateTime.Now.ToString()));
 
                             doc.Close();
-
+                            doc = null;
                             MessageBox.Show("Successfully Created PDF");
 
                             ProcessStartInfo psi = new ProcessStartInfo

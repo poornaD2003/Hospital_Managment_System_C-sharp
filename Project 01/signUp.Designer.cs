@@ -59,7 +59,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ActiveCaptionText;
-            label1.Location = new Point(45, 67);
+            label1.Location = new Point(45, 295);
             label1.Name = "label1";
             label1.Size = new Size(99, 28);
             label1.TabIndex = 0;
@@ -71,7 +71,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ActiveCaptionText;
-            label2.Location = new Point(45, 140);
+            label2.Location = new Point(45, 352);
             label2.Name = "label2";
             label2.Size = new Size(101, 28);
             label2.TabIndex = 1;
@@ -83,7 +83,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ActiveCaptionText;
-            label3.Location = new Point(45, 287);
+            label3.Location = new Point(415, 355);
             label3.Name = "label3";
             label3.Size = new Size(144, 28);
             label3.TabIndex = 2;
@@ -96,7 +96,7 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ActiveCaptionText;
-            label4.Location = new Point(45, 216);
+            label4.Location = new Point(415, 295);
             label4.Name = "label4";
             label4.Size = new Size(59, 28);
             label4.TabIndex = 3;
@@ -105,44 +105,47 @@
             // 
             // userNameField
             // 
-            userNameField.Location = new Point(50, 98);
+            userNameField.BorderStyle = BorderStyle.FixedSingle;
+            userNameField.Cursor = Cursors.IBeam;
+            userNameField.ImeMode = ImeMode.NoControl;
+            userNameField.Location = new Point(50, 326);
             userNameField.Name = "userNameField";
-            userNameField.Size = new Size(335, 27);
+            userNameField.Size = new Size(248, 27);
             userNameField.TabIndex = 4;
             // 
             // passswordField
             // 
-            passswordField.Location = new Point(50, 171);
+            passswordField.Location = new Point(50, 383);
             passswordField.Name = "passswordField";
-            passswordField.Size = new Size(335, 27);
+            passswordField.Size = new Size(248, 27);
             passswordField.TabIndex = 5;
             passswordField.UseSystemPasswordChar = true;
             passswordField.TextChanged += passswordField_TextChanged;
             // 
             // phoneNumberField
             // 
-            phoneNumberField.Location = new Point(50, 318);
+            phoneNumberField.Location = new Point(420, 386);
             phoneNumberField.Name = "phoneNumberField";
-            phoneNumberField.Size = new Size(335, 27);
+            phoneNumberField.Size = new Size(259, 27);
             phoneNumberField.TabIndex = 6;
             // 
             // emailField
             // 
-            emailField.Location = new Point(50, 247);
+            emailField.Location = new Point(420, 326);
             emailField.Name = "emailField";
-            emailField.Size = new Size(335, 27);
+            emailField.Size = new Size(259, 27);
             emailField.TabIndex = 7;
             // 
             // signupBtn
             // 
             signupBtn.BackColor = Color.FromArgb(0, 107, 84);
-            signupBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            signupBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             signupBtn.ForeColor = SystemColors.ButtonHighlight;
-            signupBtn.Location = new Point(316, 662);
+            signupBtn.Location = new Point(45, 708);
             signupBtn.Name = "signupBtn";
-            signupBtn.Size = new Size(284, 38);
+            signupBtn.Size = new Size(623, 61);
             signupBtn.TabIndex = 8;
-            signupBtn.Text = "Signup";
+            signupBtn.Text = "Sign Up";
             signupBtn.UseVisualStyleBackColor = false;
             signupBtn.Click += signupBtn_Click;
             // 
@@ -152,17 +155,19 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.ActiveCaptionText;
-            label5.Location = new Point(45, 358);
+            label5.Location = new Point(50, 425);
             label5.Name = "label5";
             label5.Size = new Size(82, 28);
             label5.TabIndex = 9;
             label5.Text = "Address";
+            label5.Click += label5_Click;
             // 
             // addressField
             // 
-            addressField.Location = new Point(50, 389);
+            addressField.Location = new Point(50, 456);
+            addressField.Multiline = true;
             addressField.Name = "addressField";
-            addressField.Size = new Size(335, 27);
+            addressField.Size = new Size(629, 86);
             addressField.TabIndex = 10;
             // 
             // label6
@@ -171,7 +176,7 @@
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = SystemColors.ActiveCaptionText;
-            label6.Location = new Point(45, 430);
+            label6.Location = new Point(45, 545);
             label6.Name = "label6";
             label6.Size = new Size(47, 28);
             label6.TabIndex = 11;
@@ -179,7 +184,7 @@
             // 
             // ageField
             // 
-            ageField.Location = new Point(50, 461);
+            ageField.Location = new Point(50, 576);
             ageField.Name = "ageField";
             ageField.Size = new Size(248, 27);
             ageField.TabIndex = 12;
@@ -190,11 +195,11 @@
             Sex.BackColor = Color.Transparent;
             Sex.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Sex.ForeColor = SystemColors.ActiveCaptionText;
-            Sex.Location = new Point(50, 500);
+            Sex.Location = new Point(50, 616);
             Sex.Name = "Sex";
-            Sex.Size = new Size(42, 28);
+            Sex.Size = new Size(76, 28);
             Sex.TabIndex = 13;
-            Sex.Text = "Sex";
+            Sex.Text = "Gender";
             // 
             // label7
             // 
@@ -202,7 +207,7 @@
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.ForeColor = SystemColors.ActiveCaptionText;
-            label7.Location = new Point(50, 576);
+            label7.Location = new Point(420, 616);
             label7.Name = "label7";
             label7.Size = new Size(120, 28);
             label7.TabIndex = 16;
@@ -212,7 +217,7 @@
             // 
             bloodField.FormattingEnabled = true;
             bloodField.Items.AddRange(new object[] { "A-", "o+", "o-", "AB-" });
-            bloodField.Location = new Point(50, 607);
+            bloodField.Location = new Point(420, 647);
             bloodField.Name = "bloodField";
             bloodField.Size = new Size(248, 28);
             bloodField.TabIndex = 17;
@@ -221,7 +226,7 @@
             // 
             sexField.FormattingEnabled = true;
             sexField.Items.AddRange(new object[] { "Male", "Female" });
-            sexField.Location = new Point(50, 531);
+            sexField.Location = new Point(50, 647);
             sexField.Name = "sexField";
             sexField.Size = new Size(248, 28);
             sexField.TabIndex = 18;
@@ -231,7 +236,7 @@
             imageBtn.BackColor = Color.FromArgb(0, 107, 84);
             imageBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             imageBtn.ForeColor = SystemColors.ButtonHighlight;
-            imageBtn.Location = new Point(545, 329);
+            imageBtn.Location = new Point(280, 248);
             imageBtn.Name = "imageBtn";
             imageBtn.Size = new Size(183, 38);
             imageBtn.TabIndex = 19;
@@ -243,9 +248,9 @@
             // 
             imageBox.BackgroundImage = Properties.Resources._8a8d3f62663f719adc1b4402d1ce9d8f;
             imageBox.BackgroundImageLayout = ImageLayout.Stretch;
-            imageBox.Location = new Point(518, 98);
+            imageBox.Location = new Point(297, 83);
             imageBox.Name = "imageBox";
-            imageBox.Size = new Size(232, 214);
+            imageBox.Size = new Size(150, 150);
             imageBox.SizeMode = PictureBoxSizeMode.StretchImage;
             imageBox.TabIndex = 20;
             imageBox.TabStop = false;
@@ -253,10 +258,10 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(50, 18);
+            label8.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(253, 27);
             label8.Name = "label8";
-            label8.Size = new Size(252, 38);
+            label8.Size = new Size(257, 41);
             label8.TabIndex = 21;
             label8.Text = "Create an account";
             // 
@@ -264,9 +269,9 @@
             // 
             button1.BackColor = Color.FromArgb(0, 107, 84);
             button1.Image = Properties.Resources.Vector;
-            button1.Location = new Point(747, 27);
+            button1.Location = new Point(628, 27);
             button1.Name = "button1";
-            button1.Size = new Size(51, 29);
+            button1.Size = new Size(40, 29);
             button1.TabIndex = 22;
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_1;
@@ -275,8 +280,15 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(244, 246, 248);
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(836, 721);
+            ClientSize = new Size(733, 793);
+            Controls.Add(label3);
+            Controls.Add(label4);
+            Controls.Add(label1);
+            Controls.Add(userNameField);
+            Controls.Add(passswordField);
+            Controls.Add(emailField);
             Controls.Add(button1);
             Controls.Add(label8);
             Controls.Add(imageBox);
@@ -290,14 +302,8 @@
             Controls.Add(addressField);
             Controls.Add(label5);
             Controls.Add(signupBtn);
-            Controls.Add(emailField);
             Controls.Add(phoneNumberField);
-            Controls.Add(passswordField);
-            Controls.Add(userNameField);
-            Controls.Add(label4);
-            Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "signUp";
             StartPosition = FormStartPosition.CenterScreen;

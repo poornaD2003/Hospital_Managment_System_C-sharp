@@ -52,7 +52,7 @@ namespace Project_01
             {
                 case "Patient":
                     user = new Patient(username, password);
-                    
+
                     break;
                 case "Doctor":
                     user = new Doctor(username, password);
@@ -90,6 +90,11 @@ namespace Project_01
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
