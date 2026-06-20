@@ -145,6 +145,7 @@
             Controls.Add(label1);
             Controls.Add(panel1);
             Name = "adminRegister";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "adminRegister";
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

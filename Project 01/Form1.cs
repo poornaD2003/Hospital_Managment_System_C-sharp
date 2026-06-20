@@ -3,6 +3,11 @@ namespace Project_01
 {
     public partial class Form1 : Form
     {
+
+        private string _doctorUsername;
+
+
+
         private int currentUserId;
         public Form1(int userId)
         {
@@ -10,15 +15,11 @@ namespace Project_01
             this.currentUserId = userId;
         }
 
+
+
         private void button5_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            AppointmentForm frm = new AppointmentForm();
-            frm.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -58,18 +59,20 @@ namespace Project_01
                     string query =
                     @"SELECT
           a.appointmentID,
-          p.patientID,
-          p.userName AS full_name,
+          a.patientID,
+          ISNULL(p.userName, a.patientID) AS full_name,
           a.appointmentTime,
           a.note
           FROM appoinment a
-          INNER JOIN patient p
+          LEFT JOIN patient p
           ON a.patientID=p.patientID
-          WHERE CAST(a.appoinmentDate AS DATE) = CAST(GETDATE() AS DATE)
+          WHERE a.doctorID = @doctorId
+          AND CAST(a.appoinmentDate AS DATE) = CAST(GETDATE() AS DATE)
           AND (a.note IS NULL OR a.note <> 'Completed')
           ORDER BY a.appointmentTime";
 
                     SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@doctorId", currentUserId.ToString());
                     con.Open();
                     SqlDataReader dr = cmd.ExecuteReader();
 
@@ -138,6 +141,7 @@ namespace Project_01
                         p.Controls.Add(lbl1);
                         p.Controls.Add(lbl2);
                         p.Controls.Add(lbl3);
+                        p.Controls.Add(lblId);
                         p.Controls.Add(arrow);
 
                         EventHandler clickHandler = (s, args) => Appointment_Click(p, EventArgs.Empty);
@@ -180,6 +184,15 @@ namespace Project_01
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
+            using (SqlConnection con = dbConnection.GetConnection())
+            {
+                string query = "SELECT userName FROM [user] WHERE userId = @id";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@id", currentUserId);
+                con.Open();
+                object result = cmd.ExecuteScalar();
+                _doctorUsername = result?.ToString() ?? "";
+            }
             LoadDoctorInfo();
             LoadTotalPatients();
             LoadPendingAppointments();
@@ -192,30 +205,33 @@ namespace Project_01
             {
                 using (SqlConnection con = dbConnection.GetConnection())
                 {
-                    string query = "SELECT doctorName FROM doctor WHERE doctorID = '1'";
+                    string query = "SELECT doctorName, specialization FROM doctor WHERE doctorID = @id";
                     SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@id", currentUserId.ToString());
                     con.Open();
-                    object result = cmd.ExecuteScalar();
-                    if (result != null)
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        string name = result.ToString();
-                        lblWelcome.Text = "Welcome back,\n" + name;
-                        label3.Text = "Dr. " + name;
+                        if (reader.Read())
+                        {
+                            string name = reader["doctorName"].ToString();
+                            lblWelcome.Text = "Welcome back,\n" + name;
+                            label3.Text = "Dr. " + name;
+                            label4.Text = reader["specialization"] != null && !string.IsNullOrWhiteSpace(reader["specialization"].ToString())
+                                ? reader["specialization"].ToString() : "General Practitioner";
+                        }
+                        else
+                        {
+                            lblWelcome.Text = "Welcome back,\n" + _doctorUsername;
+                            label3.Text = "Dr. " + (string.IsNullOrEmpty(_doctorUsername) ? "Doctor" : _doctorUsername);
+                            label4.Text = "General Practitioner";
+                        }
                     }
-                }
-
-                using (SqlConnection con = dbConnection.GetConnection())
-                {
-                    string query = "SELECT specialization FROM doctor WHERE doctorID = '1'";
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    con.Open();
-                    object spec = cmd.ExecuteScalar();
-                    label4.Text = spec != null && !string.IsNullOrWhiteSpace(spec.ToString())
-                        ? spec.ToString() : "General Practitioner";
                 }
             }
             catch
             {
+                lblWelcome.Text = "Welcome back,\n" + (string.IsNullOrEmpty(_doctorUsername) ? "Doctor" : _doctorUsername);
+                label3.Text = "Dr. " + (string.IsNullOrEmpty(_doctorUsername) ? "Doctor" : _doctorUsername);
                 label4.Text = "General Practitioner";
             }
         }
@@ -226,8 +242,12 @@ namespace Project_01
             {
                 using (SqlConnection con = dbConnection.GetConnection())
                 {
-                    string query = "SELECT COUNT(*) FROM patient";
+                    string query =
+                    @"SELECT COUNT(DISTINCT a.patientID)
+                    FROM appoinment a
+                    WHERE a.doctorID = @id";
                     SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@id", currentUserId.ToString());
                     con.Open();
                     lblTotalPatients.Text = cmd.ExecuteScalar().ToString();
                 }
@@ -247,9 +267,11 @@ namespace Project_01
                     string query =
                     @"SELECT COUNT(*)
           FROM appoinment
-          WHERE CAST(appoinmentDate AS DATE) = CAST(GETDATE() AS DATE)
+          WHERE doctorID = @id
+          AND CAST(appoinmentDate AS DATE) = CAST(GETDATE() AS DATE)
           AND (note IS NULL OR note <> 'Completed')";
                     SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@id", currentUserId.ToString());
                     con.Open();
                     lblPendingAppointments.Text = cmd.ExecuteScalar().ToString();
                 }
@@ -262,20 +284,32 @@ namespace Project_01
 
         private void button2_Click(object sender, EventArgs e)
         {
-            PatientForm frm = new PatientForm();
+            PatientForm frm = new PatientForm(currentUserId);
             frm.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AppointmentForm frm = new AppointmentForm();
+            AppointmentForm frm = new AppointmentForm(currentUserId);
             frm.Show();
         }
+
+
+        private void lblWelcome_Click(object sender, EventArgs e)
+        { }
 
         private void button4_Click_1(object sender, EventArgs e)
         {
             doctorDataEdit editData = new doctorDataEdit(currentUserId);
             editData.Show();
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            doctorDataEdit dde=new doctorDataEdit(currentUserId);
+            dde.Show();
         }
     }
 }
+

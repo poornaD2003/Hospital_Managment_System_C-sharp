@@ -504,6 +504,7 @@
             Controls.Add(panel1);
             DoubleBuffered = true;
             Name = "doctorDataEdit";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "doctorDataEdit";
             Load += doctorDataEdit_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

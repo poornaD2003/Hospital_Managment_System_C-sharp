@@ -170,6 +170,7 @@
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "doctorRegestor";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "doctorRegestor";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();

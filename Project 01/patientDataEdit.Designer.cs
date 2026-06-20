@@ -328,6 +328,7 @@
             Controls.Add(label1);
             Controls.Add(panel1);
             Name = "patientDataEdit";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "patientDataEdit";
             Load += patientDataEdit_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
