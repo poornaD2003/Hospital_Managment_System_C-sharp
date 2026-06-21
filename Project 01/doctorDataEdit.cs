@@ -134,9 +134,9 @@ namespace Project_01
 
                             using (SqlCommand cmdDoctor = new SqlCommand(saveDoctorQuery, conn, transaction))
                             {
-                                cmdDoctor.Parameters.AddWithValue("@doctorID", currentUserId); // Linking via matching User ID
+                                cmdDoctor.Parameters.AddWithValue("@doctorID", currentUserId);
                                 cmdDoctor.Parameters.AddWithValue("@doctorName", doctorName);
-                                cmdDoctor.Parameters.AddWithValue("@newPassword", hashedNewPassword); // Storing the new hash here too
+                                cmdDoctor.Parameters.AddWithValue("@newPassword", hashedNewPassword); 
                                 cmdDoctor.Parameters.AddWithValue("@email", string.IsNullOrEmpty(email) ? DBNull.Value : (object)email);
                                 cmdDoctor.Parameters.AddWithValue("@phoneNumber", string.IsNullOrEmpty(phoneNumber) ? DBNull.Value : (object)phoneNumber);
                                 cmdDoctor.Parameters.AddWithValue("@address", string.IsNullOrEmpty(address) ? DBNull.Value : (object)address);

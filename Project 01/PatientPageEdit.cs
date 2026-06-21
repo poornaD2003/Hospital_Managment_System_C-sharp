@@ -72,7 +72,6 @@ namespace Project_01
 
             try
             {
-                // Using your centralized connection class here as well
                 using (SqlConnection conn = dbConnection.GetConnection())
                 {
                     string query = @"UPDATE patient 
@@ -90,13 +89,11 @@ namespace Project_01
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        // Map values from UI inputs to SQL Parameters to prevent SQL Injection
                         cmd.Parameters.AddWithValue("@patientID", txtPatientID.Text.Trim());
                         cmd.Parameters.AddWithValue("@email", txtEmail.Text.Trim());
                         cmd.Parameters.AddWithValue("@phoneNumber", txtPhoneNumber.Text.Trim());
                         cmd.Parameters.AddWithValue("@address", txtAddress.Text.Trim());
 
-                        // Parse numerical inputs safely
                         int.TryParse(txtAge.Text, out int age);
                         cmd.Parameters.AddWithValue("@age", age);
 
@@ -104,7 +101,6 @@ namespace Project_01
                         cmd.Parameters.AddWithValue("@bloodGroup", cmbBloodGroup.Text.Trim());
                         cmd.Parameters.AddWithValue("@userName", txtUserName.Text.Trim());
                         cmd.Parameters.AddWithValue("@password", currentPatientPassword);
-                        // Convert PictureBox image back to a binary byte array for your database
                         if (picPatientImage.Image != null)
                         {
                             using (MemoryStream ms = new MemoryStream())
@@ -118,7 +114,6 @@ namespace Project_01
                         }
                         else
                         {
-                            // Use standard parameter addition for DBNull values
                             cmd.Parameters.Add("@patientImage", SqlDbType.VarBinary).Value = DBNull.Value;
                         }
 
@@ -129,7 +124,7 @@ namespace Project_01
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Patient record updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LoadPatientData(); // Refresh grid instantly to show updates
+                            LoadPatientData(); 
                         }
                         else
                         {
@@ -155,7 +150,6 @@ namespace Project_01
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
-                // Pull data directly using your column names from the SQL query
                 txtPatientID.Text = row.Cells["patientID"].Value?.ToString();
                 txtEmail.Text = row.Cells["email"].Value?.ToString();
                 txtPhoneNumber.Text = row.Cells["phoneNumber"].Value?.ToString();
@@ -166,19 +160,17 @@ namespace Project_01
                 txtUserName.Text = row.Cells["userName"].Value?.ToString();
 
                 currentPatientPassword = row.Cells["password"].Value?.ToString() ?? "";
-                // Handle image extraction safely
                 if (row.Cells["patientImage"].Value != DBNull.Value && row.Cells["patientImage"].Value != null)
                 {
                     byte[] imageBytes = (byte[])row.Cells["patientImage"].Value;
                     using (MemoryStream ms = new MemoryStream(imageBytes))
                     {
-                        //picPatientImage.Image = Image.FromStream(ms);
                         picPatientImage.Image = new Bitmap(ms);
                     }
                 }
                 else
                 {
-                    picPatientImage.Image = null; // Clear old image if entry is empty
+                    picPatientImage.Image = null; 
                 }
             }
         }
@@ -186,14 +178,11 @@ namespace Project_01
         private void button1_Click(object sender, EventArgs e)
         {
 
-            // Create an instance of your existing signUp form
             using (signUp registrationForm = new signUp(null))
             {
-                // Show the sign-up page as a pop-up window modal dialog
                 if (registrationForm.ShowDialog() == DialogResult.OK)
                 {
-                    // Once they successfully complete registration and the form closes, 
-                    // instantly refresh your grid data array to show the new patient row!
+                    
                     LoadPatientData();
                 }
             }

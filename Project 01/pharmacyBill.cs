@@ -21,14 +21,12 @@ namespace Project_01
 
         private void pharmacyBill_Load(object sender, EventArgs e)
         {
-            // Setup default payment status choices
             cmbPaymentStatus.Items.Clear();
             cmbPaymentStatus.Items.Add("Paid");
             cmbPaymentStatus.Items.Add("Unpaid");
             cmbPaymentStatus.Items.Add("Pending");
-            cmbPaymentStatus.SelectedIndex = 2; // Default to 'Pending'
+            cmbPaymentStatus.SelectedIndex = 2; 
 
-            // Pre-fill bill inputs with zero to prevent empty string format exceptions
             txtAppointmentBill.Text = "0.00";
             txtMedicineBill.Text = "0.00";
             txtRoomBill.Text = "0.00";
@@ -43,13 +41,11 @@ namespace Project_01
 
             decimal runningTotal = appointment + medicine + room;
 
-            // Format output as currency format
             lblTotalAmount.Text = $"LKR {runningTotal:N2}";
         }
 
         private void btnSaveBill_Click(object sender, EventArgs e)
         {
-            // Validation: Ensure required references are filled out
             if (string.IsNullOrWhiteSpace(txtPatientID.Text) || string.IsNullOrWhiteSpace(txtAppointmentID.Text))
             {
                 MessageBox.Show("Please enter valid Patient and Appointment IDs before proceeding.",
@@ -59,11 +55,9 @@ namespace Project_01
 
             try
             {
-                // 1. Parse operational identification keys
                 string patientId = (txtPatientID.Text);
                 int appointmentId = int.Parse(txtAppointmentID.Text);
 
-                // 2. Parse billing input points and calculate grand total
                 decimal.TryParse(txtAppointmentBill.Text, out decimal appointmentCost);
                 decimal.TryParse(txtMedicineBill.Text, out decimal medicineCost);
                 decimal.TryParse(txtRoomBill.Text, out decimal roomCost);
@@ -72,18 +66,15 @@ namespace Project_01
                 string status = cmbPaymentStatus.SelectedItem.ToString();
                 DateTime paymentDate = DateTime.Now;
 
-                // 3. Direct Database Integration (Handles the 'appoinmnetID' typo present in your database schema)
                 string query = @"INSERT INTO [dbo].[bill] 
                                 ([patientID], [appoinmnetID], [totalAmount], [paymentDate], [paymentStatus]) 
                                 VALUES 
                                 (@PatientID, @AppointmentID, @TotalAmount, @PaymentDate, @PaymentStatus);";
 
-                // Using your dbConnection static method to obtain the connection
                 using (SqlConnection connection = dbConnection.GetConnection())
                 {
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        // Map parameterized values securely to prevent SQL Injection
                         command.Parameters.AddWithValue("@PatientID", patientId);
                         command.Parameters.AddWithValue("@AppointmentID", appointmentId);
                         command.Parameters.AddWithValue("@TotalAmount", grandTotal);

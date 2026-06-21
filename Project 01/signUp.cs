@@ -56,7 +56,8 @@ namespace Project_01
                     }
                 }
             }
-            catch { /* If query fails, it will fall back to P001 */ }
+            catch {
+            }
 
             return nextID;
         }
@@ -153,9 +154,7 @@ namespace Project_01
 
         private void button2_Click(object sender, EventArgs e)
         {
-            emplyeeRegister employeeRegisterForm = new emplyeeRegister();
-            employeeRegisterForm.ShowDialog();
-            this.Hide();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

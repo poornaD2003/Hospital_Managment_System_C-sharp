@@ -27,7 +27,6 @@ namespace Project_01
                             pricePerDay AS [Price/Day], patientID AS [Patient ID], numberOfDays AS [Days Stayed] 
                             FROM room";
 
-            // Calling your static dbConnection directly
             using (SqlConnection conn = dbConnection.GetConnection())
             {
                 try
@@ -56,12 +55,10 @@ namespace Project_01
             {
                 DataGridViewRow row = dgvRooms.Rows[e.RowIndex];
 
-                // Existing fields
                 txtRoomNo.Text = row.Cells["Room No"].Value?.ToString() ?? "";
                 txtPatientID.Text = row.Cells["Patient ID"].Value?.ToString() ?? "";
                 txtDays.Text = row.Cells["Days Stayed"].Value?.ToString() ?? "";
 
-                // NEW FIELDS: Maps the rest of the row data to your new labels/textboxes
                 txtSection.Text = row.Cells["Section"].Value?.ToString() ?? "";
                 txtPrice.Text = row.Cells["Price/Day"].Value?.ToString() ?? "";
                 txtStatus.Text = row.Cells["Status"].Value?.ToString() ?? "";
@@ -110,8 +107,7 @@ namespace Project_01
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormRoomConfig configForm = new FormRoomConfig();
-            configForm.ShowDialog();
+           
         }
         private void ClearInputs()
         {
@@ -120,7 +116,6 @@ namespace Project_01
             txtPatientID.Clear();
             txtDays.Clear();
 
-            // Clear out the new fields
             txtSection.Clear();
             txtPrice.Clear();
             txtStatus.Clear();
