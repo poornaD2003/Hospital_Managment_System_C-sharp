@@ -166,7 +166,7 @@
             txtAddress.Name = "txtAddress";
             txtAddress.Size = new Size(198, 27);
             txtAddress.TabIndex = 8;
-           // txtAddress.TextChanged += this.txtAddress_TextChanged;
+            txtAddress.WordWrap = false;
             // 
             // label4
             // 
@@ -177,7 +177,6 @@
             label4.Size = new Size(62, 20);
             label4.TabIndex = 7;
             label4.Text = "Address";
-            //label4.Click += this.label4_Click;
             // 
             // txtAge
             // 
@@ -352,6 +351,7 @@
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(3, 4, 3, 4);
             Name = "PatientPageEdit";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "PatientPageEdit";
             Load += PatientPageEdit_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

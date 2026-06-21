@@ -256,6 +256,7 @@
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(3, 4, 3, 4);
             Name = "pharmacyBill";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "pharmacyBill";
             Load += pharmacyBill_Load;
             ResumeLayout(false);

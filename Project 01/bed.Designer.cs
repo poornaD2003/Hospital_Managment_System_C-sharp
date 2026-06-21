@@ -260,6 +260,7 @@
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(3, 4, 3, 4);
             Name = "bed";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "bed";
             Load += bed_Load;
             ((System.ComponentModel.ISupportInitialize)dgvRooms).EndInit();
