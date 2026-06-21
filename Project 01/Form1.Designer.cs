@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            button4 = new Button();
             button5 = new Button();
             button3 = new Button();
             button2 = new Button();
@@ -51,7 +52,7 @@
             label8 = new Label();
             panel3 = new Panel();
             flowAppointments = new FlowLayoutPanel();
-            button4 = new Button();
+            button6 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -65,6 +66,7 @@
             // 
             panel1.BackColor = Color.White;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(button6);
             panel1.Controls.Add(button5);
             panel1.Controls.Add(button3);
             panel1.Controls.Add(button2);
@@ -75,6 +77,25 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(274, 754);
             panel1.TabIndex = 0;
+            // 
+            // button4
+            // 
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatAppearance.MouseDownBackColor = Color.FromArgb(200, 230, 200);
+            button4.FlatAppearance.MouseOverBackColor = Color.FromArgb(220, 245, 220);
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button4.ForeColor = Color.ForestGreen;
+            button4.ImageAlign = ContentAlignment.MiddleLeft;
+            button4.Location = new Point(-3, 659);
+            button4.Name = "button4";
+            button4.Padding = new Padding(40, 0, 0, 0);
+            button4.Size = new Size(272, 42);
+            button4.TabIndex = 8;
+            button4.Text = "      \U0001fa7a  Profile";
+            button4.TextAlign = ContentAlignment.MiddleLeft;
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click_1;
             // 
             // button5
             // 
@@ -90,7 +111,7 @@
             button5.Padding = new Padding(40, 0, 0, 0);
             button5.Size = new Size(272, 42);
             button5.TabIndex = 7;
-            button5.Text = "  \u23fb  Sign Out";
+            button5.Text = "     \u23fb  Sign Out";
             button5.TextAlign = ContentAlignment.MiddleLeft;
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
@@ -245,6 +266,7 @@
             lblWelcome.Size = new Size(260, 92);
             lblWelcome.TabIndex = 0;
             lblWelcome.Text = "Welcome back,\r\nDoctor";
+            lblWelcome.Click += lblWelcome_Click;
             // 
             // panel5
             // 
@@ -346,15 +368,23 @@
             flowAppointments.WrapContents = false;
             flowAppointments.Paint += flowAppointments_Paint;
             // 
-            // button4
+            // button6
             // 
-            button4.Location = new Point(578, 22);
-            button4.Name = "button4";
-            button4.Size = new Size(76, 29);
-            button4.TabIndex = 4;
-            button4.Text = "Profile";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click_1;
+            button6.FlatAppearance.BorderSize = 0;
+            button6.FlatAppearance.MouseDownBackColor = Color.FromArgb(200, 230, 200);
+            button6.FlatAppearance.MouseOverBackColor = Color.FromArgb(220, 245, 220);
+            button6.FlatStyle = FlatStyle.Flat;
+            button6.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button6.ImageAlign = ContentAlignment.MiddleLeft;
+            button6.Location = new Point(0, 659);
+            button6.Name = "button6";
+            button6.Padding = new Padding(40, 0, 0, 0);
+            button6.Size = new Size(272, 42);
+            button6.TabIndex = 8;
+            button6.Text = "     👤  Profile";
+            button6.TextAlign = ContentAlignment.MiddleLeft;
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // Form1
             // 
@@ -370,7 +400,6 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dashboard";
-            WindowState = FormWindowState.Maximized;
             Load += Form1_Load_1;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -414,5 +443,6 @@
         private Label lblTotalPatients;
         private Label lblPendingAppointments;
         private Button button4;
+        private Button button6;
     }
 }

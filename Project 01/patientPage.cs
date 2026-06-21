@@ -1,32 +1,103 @@
-﻿using iTextSharp.text;
+using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Microsoft.Data.SqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
 using System.Text;
+using System.Diagnostics;
+using System.IO;
 using System.Windows.Forms;
-
-
 namespace Project_01
 {
     public partial class patientPage : Form
     {
-        string patientID;
+        private string patientID;
+
         public patientPage(string patientID)
         {
             InitializeComponent();
             this.patientID = patientID;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void patientPage_Load(object sender, EventArgs e)
         {
-
+            LoadPatientSummary();
         }
+
+        private void LoadPatientSummary()
+        {
+            using (SqlConnection conn = dbConnection.GetConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT userName, email, phoneNumber, address, age, sex, bloodGroup FROM patient WHERE patientID = @id";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", patientID);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string name = reader["userName"].ToString();
+                                string email = reader["email"].ToString();
+                                string phone = reader["phoneNumber"].ToString();
+                                string address = reader["address"].ToString();
+                                string age = reader["age"].ToString();
+                                string sex = reader["sex"].ToString();
+                                string blood = reader["bloodGroup"].ToString();
+
+                                lblWelcome.Text = "Welcome, " + name + "!";
+                                lblProfileDetails.Text = "PATIENT INFORMATION SUMMARY\n\n" +
+                                                         "Patient ID:    " + patientID + "\n" +
+                                                         "Name:          " + name + "\n" +
+                                                         "Email:         " + email + "\n" +
+                                                         "Phone:         " + phone + "\n" +
+                                                         "Age / Sex:     " + age + " / " + sex + "\n" +
+                                                         "Blood Group:   " + blood + "\n" +
+                                                         "Address:       " + address;
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading patient data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnBookAppt_Click(object sender, EventArgs e)
+        {
+            patientBookAppointment frm = new patientBookAppointment(patientID);
+            frm.ShowDialog();
+            LoadPatientSummary(); 
+        }
+
+        private void btnManageAccount_Click(object sender, EventArgs e)
+        {
+            patientDataEdit frm = new patientDataEdit(patientID);
+            
+            frm.ShowDialog();
+
+            LoadPatientSummary(); 
+        }
+
+        private void btnExportPDF_Click(object sender, EventArgs e)
+        {
+            ExportPatientToPDF(patientID);
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+           
+            this.Hide();
+        }
+
+        private void patientPage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
         public void ExportPatientToPDF(string patientId)
         {
             using (SqlConnection conn = dbConnection.GetConnection())
@@ -86,7 +157,7 @@ namespace Project_01
                             doc.Add(new Paragraph("Date: " + DateTime.Now.ToString()));
 
                             doc.Close();
-
+                            doc = null;
                             MessageBox.Show("Successfully Created PDF");
 
                             ProcessStartInfo psi = new ProcessStartInfo
@@ -109,16 +180,9 @@ namespace Project_01
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void pnlInfo_Paint(object sender, PaintEventArgs e)
         {
-            patientPage patientPage = new patientPage(patientID);
-            patientPage.ExportPatientToPDF(patientID);
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            patientDataEdit patientEdit = new patientDataEdit(patientID);
-            patientEdit.Show();
         }
     }
 }

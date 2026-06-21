@@ -48,6 +48,16 @@
             editBox = new Button();
             label8 = new Label();
             passBox = new TextBox();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            pictureBox5 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -135,44 +145,54 @@
             // 
             // nameBox
             // 
-            nameBox.Location = new Point(52, 103);
+            nameBox.BorderStyle = BorderStyle.None;
+            nameBox.Location = new Point(88, 103);
+            nameBox.Multiline = true;
             nameBox.Name = "nameBox";
-            nameBox.Size = new Size(315, 27);
+            nameBox.Size = new Size(279, 27);
             nameBox.TabIndex = 9;
             // 
             // emailBox
             // 
-            emailBox.Location = new Point(52, 159);
+            emailBox.BorderStyle = BorderStyle.None;
+            emailBox.Location = new Point(88, 159);
+            emailBox.Multiline = true;
             emailBox.Name = "emailBox";
-            emailBox.Size = new Size(315, 27);
+            emailBox.Size = new Size(279, 27);
             emailBox.TabIndex = 10;
             // 
             // numberBox
             // 
-            numberBox.Location = new Point(52, 226);
+            numberBox.BorderStyle = BorderStyle.None;
+            numberBox.Location = new Point(88, 226);
+            numberBox.Multiline = true;
             numberBox.Name = "numberBox";
-            numberBox.Size = new Size(315, 27);
+            numberBox.Size = new Size(279, 27);
             numberBox.TabIndex = 11;
             // 
             // addressBox
             // 
-            addressBox.Location = new Point(52, 293);
+            addressBox.BorderStyle = BorderStyle.None;
+            addressBox.Location = new Point(88, 293);
+            addressBox.Multiline = true;
             addressBox.Name = "addressBox";
-            addressBox.Size = new Size(315, 27);
+            addressBox.Size = new Size(279, 27);
             addressBox.TabIndex = 12;
             // 
             // ageBox
             // 
-            ageBox.Location = new Point(52, 362);
+            ageBox.BorderStyle = BorderStyle.None;
+            ageBox.Location = new Point(88, 362);
+            ageBox.Multiline = true;
             ageBox.Name = "ageBox";
-            ageBox.Size = new Size(315, 27);
+            ageBox.Size = new Size(279, 27);
             ageBox.TabIndex = 13;
             // 
             // sexBox
             // 
             sexBox.FormattingEnabled = true;
             sexBox.Items.AddRange(new object[] { "Male", "Female", "" });
-            sexBox.Location = new Point(52, 428);
+            sexBox.Location = new Point(88, 428);
             sexBox.Name = "sexBox";
             sexBox.Size = new Size(195, 28);
             sexBox.TabIndex = 14;
@@ -181,14 +201,14 @@
             // 
             bloodBox.FormattingEnabled = true;
             bloodBox.Items.AddRange(new object[] { "A-", "A+", "0+", "0-" });
-            bloodBox.Location = new Point(52, 498);
+            bloodBox.Location = new Point(88, 498);
             bloodBox.Name = "bloodBox";
             bloodBox.Size = new Size(195, 28);
             bloodBox.TabIndex = 15;
             // 
             // panel1
             // 
-            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
+            panel1.BackgroundImage = Properties.Resources.jc_gellidon_UIp163xCV6w_unsplash;
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.Location = new Point(427, 7);
             panel1.Name = "panel1";
@@ -220,18 +240,74 @@
             // 
             // passBox
             // 
-            passBox.Location = new Point(52, 591);
+            passBox.BorderStyle = BorderStyle.FixedSingle;
+            passBox.Location = new Point(88, 591);
             passBox.Name = "passBox";
             passBox.PasswordChar = '*';
-            passBox.Size = new Size(315, 27);
+            passBox.Size = new Size(279, 27);
             passBox.TabIndex = 19;
             passBox.TextChanged += textBox1_TextChanged;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(46, 103);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(36, 27);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 20;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.email;
+            pictureBox2.Location = new Point(46, 159);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(36, 27);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 21;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.phone_call;
+            pictureBox3.Location = new Point(46, 226);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(36, 27);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 22;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.location;
+            pictureBox4.Location = new Point(46, 293);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(36, 27);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 23;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = Properties.Resources.padlock;
+            pictureBox5.Location = new Point(46, 591);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(36, 27);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 24;
+            pictureBox5.TabStop = false;
             // 
             // patientDataEdit
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 716);
+            Controls.Add(pictureBox5);
+            Controls.Add(pictureBox4);
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
             Controls.Add(passBox);
             Controls.Add(label8);
             Controls.Add(editBox);
@@ -252,7 +328,14 @@
             Controls.Add(label1);
             Controls.Add(panel1);
             Name = "patientDataEdit";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "patientDataEdit";
+            Load += patientDataEdit_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -278,5 +361,10 @@
         private Button editBox;
         private Label label8;
         private TextBox passBox;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox5;
     }
 }
