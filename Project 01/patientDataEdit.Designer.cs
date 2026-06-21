@@ -208,7 +208,7 @@
             // 
             // panel1
             // 
-            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
+            panel1.BackgroundImage = Properties.Resources.jc_gellidon_UIp163xCV6w_unsplash;
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.Location = new Point(427, 7);
             panel1.Name = "panel1";

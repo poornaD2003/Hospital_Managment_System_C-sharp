@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminRegister));
             panel1 = new Panel();
             label1 = new Label();
             label2 = new Label();
@@ -44,7 +43,7 @@
             // 
             // panel1
             // 
-            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
+            panel1.BackgroundImage = Properties.Resources.jc_gellidon_9Eb_bpTXglM_unsplash;
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.Location = new Point(1, 2);
             panel1.Name = "panel1";

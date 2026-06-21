@@ -93,6 +93,16 @@ namespace Project_01.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap clay_banks_e6pK_snssSY_unsplash {
+            get {
+                object obj = ResourceManager.GetObject("clay-banks-e6pK_snssSY-unsplash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap clock {
             get {
                 object obj = ResourceManager.GetObject("clock", resourceCulture);
@@ -116,6 +126,26 @@ namespace Project_01.Properties {
         internal static System.Drawing.Bitmap email {
             get {
                 object obj = ResourceManager.GetObject("email", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap jc_gellidon_9Eb_bpTXglM_unsplash {
+            get {
+                object obj = ResourceManager.GetObject("jc-gellidon-9Eb-bpTXglM-unsplash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap jc_gellidon_UIp163xCV6w_unsplash {
+            get {
+                object obj = ResourceManager.GetObject("jc-gellidon-UIp163xCV6w-unsplash", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

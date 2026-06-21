@@ -7,6 +7,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using BCrypt.Net;
+
 
 namespace Project_01
 {
@@ -257,7 +259,7 @@ namespace Project_01
             {
                 MessageBox.Show("Please click on a doctor from the list first to update their record.");
                 return;
-            } 
+            }
 
             if (!int.TryParse(txtAge.Text, out int age))
             {
@@ -281,9 +283,15 @@ namespace Project_01
             using (SqlConnection conn = dbConnection.GetConnection())
             {
                 // Use an UPDATE statement targeted at the specific selected doctorID
-                string query = "UPDATE doctor SET doctorName = @name, password = @pass, email = @email, " +
+                string query = "UPDATE doctor SET doctorName = @name, email = @email, " +
                                "phoneNumber = @phone, address = @address, age = @age, sex = @sex, " +
                                "specialization = @spec";
+
+                bool isPasswordChanged = !string.IsNullOrWhiteSpace(txtPassword.Text);
+                if (isPasswordChanged)
+                {
+                    query += ", password = @pass";
+                }
 
                 // Only update the image column if the user actually uploaded a new file
                 if (imgData != null)
@@ -297,13 +305,18 @@ namespace Project_01
                 {
                     cmd.Parameters.AddWithValue("@id", int.Parse(txtID.Text)); // Matches the hidden or tracking ID text box
                     cmd.Parameters.AddWithValue("@name", txtName.Text);
-                    cmd.Parameters.AddWithValue("@pass", txtPassword.Text);
                     cmd.Parameters.AddWithValue("@email", txtEmail.Text);
                     cmd.Parameters.AddWithValue("@phone", txtPhone.Text);
                     cmd.Parameters.AddWithValue("@address", txtAddress.Text);
                     cmd.Parameters.AddWithValue("@age", age);
                     cmd.Parameters.AddWithValue("@sex", cmbSex.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("@spec", txtSpecialization.Text);
+
+                    if (isPasswordChanged)
+                    {
+                        string hashedPassword = BCrypt.Net.BCrypt.HashPassword(txtPassword.Text); // <--- ඔයා පාවිච්චි කරන Hash function එක මෙතනට දාන්න (e.g. BCrypt, SHA256)
+                        cmd.Parameters.AddWithValue("@pass", hashedPassword);
+                    }
 
                     if (imgData != null)
                     {
@@ -315,6 +328,7 @@ namespace Project_01
                         conn.Open();
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Doctor details updated successfully!");
+                        txtPassword.Text = "";
 
                         LoadDoctors(); // Refresh the grid to show the changes instantly
                     }
@@ -329,6 +343,18 @@ namespace Project_01
         private void txtID_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            adminPage admin = new adminPage();
+            this.Show();
+            this.Hide(); 
         }
     }
 }

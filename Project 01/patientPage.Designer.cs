@@ -17,7 +17,6 @@ namespace Project_01
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(patientPage));
             lblWelcome = new Label();
             btnBookAppt = new Button();
             btnManageAccount = new Button();
@@ -121,7 +120,7 @@ namespace Project_01
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImage = Properties.Resources.clay_banks_e6pK_snssSY_unsplash;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1037, 632);
             Controls.Add(pnlInfo);

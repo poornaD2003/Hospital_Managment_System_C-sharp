@@ -89,8 +89,7 @@ namespace Project_01
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            login loginPage = new login(null);
-            loginPage.Show();
+           
             this.Hide();
         }
 

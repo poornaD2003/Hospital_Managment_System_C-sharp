@@ -264,7 +264,7 @@
             // genderBox
             // 
             genderBox.FormattingEnabled = true;
-            genderBox.Items.AddRange(new object[] { "male", "femal" });
+            genderBox.Items.AddRange(new object[] { "Male", "Femal" });
             genderBox.Location = new Point(36, 462);
             genderBox.Name = "genderBox";
             genderBox.Size = new Size(278, 28);

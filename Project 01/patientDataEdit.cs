@@ -117,8 +117,7 @@ namespace Project_01
                         {
                             MessageBox.Show("Patient details updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
-                            patientPage patient = new patientPage(pID);
-                            patient.Show();
+                            
 
                         }
                         else

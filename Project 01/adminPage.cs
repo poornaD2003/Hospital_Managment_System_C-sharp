@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,12 +24,16 @@ namespace Project_01
 
         private void btnPatients_Click(object sender, EventArgs e)
         {
-            
+            PatientPageEdit patPage = new PatientPageEdit();
+            patPage.Show();
+            this.Hide();
         }
 
         private void btnBilling_Click(object sender, EventArgs e)
         {
-            
+            pharmacyBill billPage = new pharmacyBill();
+            billPage.Show();
+            this.Hide();
         }
 
         private void btnRooms_Click(object sender, EventArgs e)
@@ -37,6 +41,19 @@ namespace Project_01
             bed bedPage = new bed();
             bedPage.Show();
             this.Hide();
+
+        }
+
+        private void btnMedical_Click(object sender, EventArgs e)
+        {
+
+            medicalReport medicalReportPage = new medicalReport();
+            medicalReportPage.Show();
+            this.Hide();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }
