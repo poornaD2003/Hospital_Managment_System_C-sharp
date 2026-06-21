@@ -108,7 +108,6 @@ namespace Project_01
                         lbl2.Text = nameText;
                         lbl2.Font = new Font("Segoe UI", 11, FontStyle.Bold);
                         lbl2.AutoSize = true;
-                        // calculate left position based on measured width of time label
                         Size timeSize = TextRenderer.MeasureText(lbl1.Text, lbl1.Font);
                         int leftPos = 25 + timeSize.Width + 20;
                         lbl2.Location = new Point(leftPos, 12);
@@ -117,10 +116,8 @@ namespace Project_01
                         lbl3.Text = dr["note"].ToString();
                         lbl3.ForeColor = Color.Gray;
                         lbl3.AutoSize = true;
-                        // align notes under the patient name
                         lbl3.Location = new Point(leftPos, 42);
 
-                        // show patientID next to name for clarity
                         Label lblId = new Label();
                         string pid = dr["patientID"].ToString();
                         lblId.Text = pid;

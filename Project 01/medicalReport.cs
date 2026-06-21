@@ -33,28 +33,22 @@ namespace Project_01
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // 1. Basic Input Validation
             if (string.IsNullOrWhiteSpace(txtPatientID.Text) || string.IsNullOrWhiteSpace(txtAppointmentID.Text))
             {
                 MessageBox.Show("Patient ID and Appointment ID are required fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 2. Prepare the parameterized SQL query
-            // (Excluding reportID assuming it is an auto-incrementing identity column)
             string query = "INSERT INTO [dbo].[medicalReport] ([patientID], [appoinmentID], [diagnosis], [testResults]) " +
                            "VALUES (@PatientID, @AppointmentID, @Diagnosis, @TestResults)";
 
-            // 3. Call your centralized dbConnection helper inside a using block
             using (SqlConnection connection = dbConnection.GetConnection())
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    // Map form inputs securely to the query parameters
                     command.Parameters.AddWithValue("@PatientID", txtPatientID.Text.Trim());
                     command.Parameters.AddWithValue("@AppointmentID", txtAppointmentID.Text.Trim());
 
-                    // Handle potential empty inputs as DBNull.Value safely
                     command.Parameters.AddWithValue("@Diagnosis", string.IsNullOrEmpty(rtbDiagnosis.Text) ? DBNull.Value : (object)rtbDiagnosis.Text.Trim());
                     command.Parameters.AddWithValue("@TestResults", string.IsNullOrEmpty(rtbTestResults.Text) ? DBNull.Value : (object)rtbTestResults.Text.Trim());
 

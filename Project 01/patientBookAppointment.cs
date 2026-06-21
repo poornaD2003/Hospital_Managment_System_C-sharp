@@ -107,7 +107,6 @@ namespace Project_01
                 {
                     conn.Open();
 
-                    // Check if time slot is already booked for selected doctor
                     string checkSql = "SELECT COUNT(*) FROM appoinment WHERE doctorID = @docId AND appoinmentDate = @date AND appointmentTime = @time";
                     using (SqlCommand checkCmd = new SqlCommand(checkSql, conn))
                     {
@@ -123,7 +122,6 @@ namespace Project_01
                         }
                     }
 
-                    // Insert appointment
                     string insertSql = "INSERT INTO appoinment (patientID, doctorID, appoinmentDate, appointmentTime, note) VALUES (@patId, @docId, @date, @time, @note)";
                     using (SqlCommand insertCmd = new SqlCommand(insertSql, conn))
                     {
