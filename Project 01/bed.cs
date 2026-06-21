@@ -75,7 +75,7 @@ namespace Project_01
 
             bool isDischarging = string.IsNullOrWhiteSpace(txtPatientID.Text.Trim());
             string query = @"UPDATE room 
-                            SET status = @status, patientID = @patientID, numberOfDays = @days 
+                            SET status = @status, patientID = @patientID, numberOfDays = @days, pricePerDay = @price
                             WHERE roomNumber = @roomNo";
 
             using (SqlConnection conn = dbConnection.GetConnection())
@@ -89,6 +89,8 @@ namespace Project_01
                         cmd.Parameters.AddWithValue("@patientID", isDischarging ? DBNull.Value : (object)txtPatientID.Text.Trim());
                         cmd.Parameters.AddWithValue("@days", isDischarging ? 0 : Convert.ToInt32(txtDays.Text.Trim()));
                         cmd.Parameters.AddWithValue("@status", isDischarging ? "Available" : "Occupied");
+                        double roomPrice = string.IsNullOrWhiteSpace(txtPrice.Text) ? 0.0 : Convert.ToDouble(txtPrice.Text.Trim());
+                        cmd.Parameters.AddWithValue("@price", roomPrice);
 
                         cmd.ExecuteNonQuery();
                     }
