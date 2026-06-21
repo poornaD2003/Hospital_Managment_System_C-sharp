@@ -213,16 +213,6 @@ namespace Project_01.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap the_baba_yaga_john_wick_fury_3r {
-            get {
-                object obj = ResourceManager.GetObject("the-baba-yaga-john-wick-fury-3r", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap user {
             get {
                 object obj = ResourceManager.GetObject("user", resourceCulture);
@@ -246,16 +236,6 @@ namespace Project_01.Properties {
         internal static System.Drawing.Bitmap Vector {
             get {
                 object obj = ResourceManager.GetObject("Vector", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap wtch {
-            get {
-                object obj = ResourceManager.GetObject("wtch", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

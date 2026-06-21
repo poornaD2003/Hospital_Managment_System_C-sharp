@@ -353,7 +353,7 @@ namespace Project_01
         private void button4_Click(object sender, EventArgs e)
         {
             adminPage admin = new adminPage();
-            this.Show();
+            admin.Show();
             this.Hide(); 
         }
     }

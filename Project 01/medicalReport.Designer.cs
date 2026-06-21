@@ -185,6 +185,7 @@
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(3, 4, 3, 4);
             Name = "medicalReport";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "medicalReport";
             Load += medicalReport_Load;
             ResumeLayout(false);
